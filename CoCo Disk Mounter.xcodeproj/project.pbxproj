@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52F396CF168E5A5600E2BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396CE168E5A5600E2BE13 /* Cocoa.framework */; };
+		52F396D9168E5A5700E2BE13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F396D7168E5A5700E2BE13 /* InfoPlist.strings */; };
+		52F396DB168E5A5700E2BE13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396DA168E5A5700E2BE13 /* main.m */; };
+		52F396DF168E5A5700E2BE13 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52F396DD168E5A5700E2BE13 /* Credits.rtf */; };
+		52F396E2168E5A5700E2BE13 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */; };
+		52F396E5168E5A5700E2BE13 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F396E3168E5A5700E2BE13 /* MainMenu.xib */; };
+		52F396ED168E5A5700E2BE13 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */; };
+		52F396EE168E5A5700E2BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396CE168E5A5600E2BE13 /* Cocoa.framework */; };
+		52F396F6168E5A5800E2BE13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F396F4168E5A5800E2BE13 /* InfoPlist.strings */; };
+		52F396F9168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52F396EF168E5A5700E2BE13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52F396C1168E5A5600E2BE13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52F396C9168E5A5600E2BE13;
+			remoteInfo = "CoCo Disk Mounter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoCo Disk Mounter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F396CE168E5A5600E2BE13 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		52F396D1168E5A5600E2BE13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		52F396D2168E5A5600E2BE13 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52F396D3168E5A5600E2BE13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52F396D6168E5A5700E2BE13 /* CoCo Disk Mounter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoCo Disk Mounter-Info.plist"; sourceTree = "<group>"; };
+		52F396D8168E5A5700E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52F396DA168E5A5700E2BE13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52F396DC168E5A5700E2BE13 /* CoCo Disk Mounter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoCo Disk Mounter-Prefix.pch"; sourceTree = "<group>"; };
+		52F396DE168E5A5700E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		52F396E0168E5A5700E2BE13 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+		52F396E4168E5A5700E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoCo Disk MounterTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		52F396F3168E5A5800E2BE13 /* CoCo Disk MounterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoCo Disk MounterTests-Info.plist"; sourceTree = "<group>"; };
+		52F396F5168E5A5800E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52F396F7168E5A5800E2BE13 /* CoCo_Disk_MounterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCo_Disk_MounterTests.h; sourceTree = "<group>"; };
+		52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCo_Disk_MounterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52F396C7168E5A5600E2BE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396CF168E5A5600E2BE13 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F396E7168E5A5700E2BE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396ED168E5A5700E2BE13 /* SenTestingKit.framework in Frameworks */,
+				52F396EE168E5A5700E2BE13 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52F396BF168E5A5600E2BE13 = {
+			isa = PBXGroup;
+			children = (
+				52F396D4168E5A5600E2BE13 /* CoCo Disk Mounter */,
+				52F396F1168E5A5700E2BE13 /* CoCo Disk MounterTests */,
+				52F396CD168E5A5600E2BE13 /* Frameworks */,
+				52F396CB168E5A5600E2BE13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52F396CB168E5A5600E2BE13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */,
+				52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52F396CD168E5A5600E2BE13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F396CE168E5A5600E2BE13 /* Cocoa.framework */,
+				52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */,
+				52F396D0168E5A5600E2BE13 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52F396D0168E5A5600E2BE13 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F396D1168E5A5600E2BE13 /* AppKit.framework */,
+				52F396D2168E5A5600E2BE13 /* CoreData.framework */,
+				52F396D3168E5A5600E2BE13 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52F396D4168E5A5600E2BE13 /* CoCo Disk Mounter */ = {
+			isa = PBXGroup;
+			children = (
+				52F396E0168E5A5700E2BE13 /* JCAppDelegate.h */,
+				52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */,
+				52F396E3168E5A5700E2BE13 /* MainMenu.xib */,
+				52F396D5168E5A5700E2BE13 /* Supporting Files */,
+			);
+			path = "CoCo Disk Mounter";
+			sourceTree = "<group>";
+		};
+		52F396D5168E5A5700E2BE13 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52F396D6168E5A5700E2BE13 /* CoCo Disk Mounter-Info.plist */,
+				52F396D7168E5A5700E2BE13 /* InfoPlist.strings */,
+				52F396DA168E5A5700E2BE13 /* main.m */,
+				52F396DC168E5A5700E2BE13 /* CoCo Disk Mounter-Prefix.pch */,
+				52F396DD168E5A5700E2BE13 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52F396F1168E5A5700E2BE13 /* CoCo Disk MounterTests */ = {
+			isa = PBXGroup;
+			children = (
+				52F396F7168E5A5800E2BE13 /* CoCo_Disk_MounterTests.h */,
+				52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */,
+				52F396F2168E5A5800E2BE13 /* Supporting Files */,
+			);
+			path = "CoCo Disk MounterTests";
+			sourceTree = "<group>";
+		};
+		52F396F2168E5A5800E2BE13 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52F396F3168E5A5800E2BE13 /* CoCo Disk MounterTests-Info.plist */,
+				52F396F4168E5A5800E2BE13 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52F396FC168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk Mounter" */;
+			buildPhases = (
+				52F396C6168E5A5600E2BE13 /* Sources */,
+				52F396C7168E5A5600E2BE13 /* Frameworks */,
+				52F396C8168E5A5600E2BE13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoCo Disk Mounter";
+			productName = "CoCo Disk Mounter";
+			productReference = 52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52F396EA168E5A5700E2BE13 /* CoCo Disk MounterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52F396FF168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk MounterTests" */;
+			buildPhases = (
+				52F396E6168E5A5700E2BE13 /* Sources */,
+				52F396E7168E5A5700E2BE13 /* Frameworks */,
+				52F396E8168E5A5700E2BE13 /* Resources */,
+				52F396E9168E5A5700E2BE13 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52F396F0168E5A5700E2BE13 /* PBXTargetDependency */,
+			);
+			name = "CoCo Disk MounterTests";
+			productName = "CoCo Disk MounterTests";
+			productReference = 52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52F396C1168E5A5600E2BE13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JC;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jamie Cho";
+			};
+			buildConfigurationList = 52F396C4168E5A5600E2BE13 /* Build configuration list for PBXProject "CoCo Disk Mounter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52F396BF168E5A5600E2BE13;
+			productRefGroup = 52F396CB168E5A5600E2BE13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */,
+				52F396EA168E5A5700E2BE13 /* CoCo Disk MounterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52F396C8168E5A5600E2BE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396D9168E5A5700E2BE13 /* InfoPlist.strings in Resources */,
+				52F396DF168E5A5700E2BE13 /* Credits.rtf in Resources */,
+				52F396E5168E5A5700E2BE13 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F396E8168E5A5700E2BE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396F6168E5A5800E2BE13 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52F396E9168E5A5700E2BE13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52F396C6168E5A5600E2BE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396DB168E5A5700E2BE13 /* main.m in Sources */,
+				52F396E2168E5A5700E2BE13 /* JCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52F396E6168E5A5700E2BE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F396F9168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52F396F0168E5A5700E2BE13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */;
+			targetProxy = 52F396EF168E5A5700E2BE13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52F396D7168E5A5700E2BE13 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F396D8168E5A5700E2BE13 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52F396DD168E5A5700E2BE13 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F396DE168E5A5700E2BE13 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		52F396E3168E5A5700E2BE13 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F396E4168E5A5700E2BE13 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		52F396F4168E5A5800E2BE13 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F396F5168E5A5800E2BE13 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52F396FA168E5A5800E2BE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52F396FB168E5A5800E2BE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52F396FD168E5A5800E2BE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk Mounter/CoCo Disk Mounter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52F396FE168E5A5800E2BE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk Mounter/CoCo Disk Mounter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		52F39700168E5A5800E2BE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoCo Disk Mounter.app/Contents/MacOS/CoCo Disk Mounter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk MounterTests/CoCo Disk MounterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		52F39701168E5A5800E2BE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoCo Disk Mounter.app/Contents/MacOS/CoCo Disk Mounter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk MounterTests/CoCo Disk MounterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52F396C4168E5A5600E2BE13 /* Build configuration list for PBXProject "CoCo Disk Mounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F396FA168E5A5800E2BE13 /* Debug */,
+				52F396FB168E5A5800E2BE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52F396FC168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk Mounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F396FD168E5A5800E2BE13 /* Debug */,
+				52F396FE168E5A5800E2BE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52F396FF168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk MounterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F39700168E5A5800E2BE13 /* Debug */,
+				52F39701168E5A5800E2BE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52F396C1168E5A5600E2BE13 /* Project object */;
+}
