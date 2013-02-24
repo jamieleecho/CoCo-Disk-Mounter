@@ -1,0 +1,10 @@
+CoCo Disk Mounter uses the OSXFUSE framework and kernel extension to mount Color Computer Disk files on OS X. This makes it possible to access and manipulate Color Computer files with standard tools such as emacs or TextEdit.
+
+This project seeks to be able to read and write all common Color Computer disk files including RS-DOS and OS-9 filesystems encoded in JVC and DMK formats. While there is no formal timeline, the order will probably look like:
+    1) Read-only RS-DOS filesystem support for JVC disk files
+    2) Read/write RS-DOS filesystem support
+    3) Read-only OS-9 filesystem support
+    4) Read/write OS-9 filesystem support
+    5) DMK format support
+
+This project is written in Objective C++ because I wanted to refresh my knowledge of the STL which has expanded significantly since I last used it. This will also help me explore the impedance mismatches of Objective C and C++ while producing a subset of code that should work with Linux and Windows.
