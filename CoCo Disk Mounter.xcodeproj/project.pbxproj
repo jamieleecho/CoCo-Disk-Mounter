@@ -7,29 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5231DB2B16DABD97007CDB63 /* JCErrorTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */; };
+		5231DB2F16DABFB4007CDB63 /* JCErrorm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCErrorm.m */; };
+		5231DB3016DAC021007CDB63 /* JCErrorm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCErrorm.m */; };
+		5231DB3316DAC096007CDB63 /* JCConversionUtilsTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB3216DAC096007CDB63 /* JCConversionUtilsTest.mm */; };
+		5231DB3616DACDE6007CDB63 /* NilFileSystemTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB3516DACDE6007CDB63 /* NilFileSystemTest.mm */; };
+		5231DB3916DAD17A007CDB63 /* JCAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB3816DAD17A007CDB63 /* JCAppDelegate.mm */; };
+		5231DB3A16DAD184007CDB63 /* JCAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB3816DAD17A007CDB63 /* JCAppDelegate.mm */; };
+		5231DB3D16DAD1E6007CDB63 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5231DB3B16DAD1E5007CDB63 /* MainMenu.xib */; };
+		52BA28C216D94C1A006DAC61 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */; };
+		52BA28C316D94C1A006DAC61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396CE168E5A5600E2BE13 /* Cocoa.framework */; };
+		52BA28C916D94C1A006DAC61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52BA28C716D94C1A006DAC61 /* InfoPlist.strings */; };
+		52BA28EF16D95115006DAC61 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E116D95115006DAC61 /* FileSystem.cpp */; };
+		52BA28F016D95115006DAC61 /* IFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E316D95115006DAC61 /* IFileSystem.cpp */; };
+		52BA28F316D95115006DAC61 /* JVCDiskImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E916D95115006DAC61 /* JVCDiskImage.cpp */; };
+		52BA28F416D95115006DAC61 /* NilFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28EB16D95115006DAC61 /* NilFileSystem.cpp */; };
+		52BA28F516D95115006DAC61 /* RsDosFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28ED16D95115006DAC61 /* RsDosFileSystem.cpp */; };
+		52BA28FB16D9512F006DAC61 /* JCFileSystemDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */; };
+		52BA290216D95142006DAC61 /* ExceptionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52BA290016D95142006DAC61 /* ExceptionTest.mm */; };
+		52BA290516D951A2006DAC61 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E116D95115006DAC61 /* FileSystem.cpp */; };
+		52BA290716D951A2006DAC61 /* IFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E316D95115006DAC61 /* IFileSystem.cpp */; };
+		52BA290D16D951A2006DAC61 /* JVCDiskImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28E916D95115006DAC61 /* JVCDiskImage.cpp */; };
+		52BA290F16D951A2006DAC61 /* NilFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28EB16D95115006DAC61 /* NilFileSystem.cpp */; };
+		52BA291116D951A2006DAC61 /* RsDosFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28ED16D95115006DAC61 /* RsDosFileSystem.cpp */; };
+		52BA292016D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
+		52BA292116D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
+		52BA292216D95609006DAC61 /* JCFileSystemDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */; };
 		52F396CF168E5A5600E2BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396CE168E5A5600E2BE13 /* Cocoa.framework */; };
 		52F396D9168E5A5700E2BE13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F396D7168E5A5700E2BE13 /* InfoPlist.strings */; };
 		52F396DB168E5A5700E2BE13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396DA168E5A5700E2BE13 /* main.m */; };
 		52F396DF168E5A5700E2BE13 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52F396DD168E5A5700E2BE13 /* Credits.rtf */; };
-		52F396E2168E5A5700E2BE13 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */; };
-		52F396E5168E5A5700E2BE13 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F396E3168E5A5700E2BE13 /* MainMenu.xib */; };
-		52F396ED168E5A5700E2BE13 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */; };
-		52F396EE168E5A5700E2BE13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396CE168E5A5600E2BE13 /* Cocoa.framework */; };
-		52F396F6168E5A5800E2BE13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F396F4168E5A5800E2BE13 /* InfoPlist.strings */; };
-		52F396F9168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		52F396EF168E5A5700E2BE13 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52F396C1168E5A5600E2BE13 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52F396C9168E5A5600E2BE13;
-			remoteInfo = "CoCo Disk Mounter";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		5231DB2916DABD97007CDB63 /* JCErrorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JCErrorTest.h; path = Delegate/JCErrorTest.h; sourceTree = "<group>"; };
+		5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JCErrorTest.mm; path = Delegate/JCErrorTest.mm; sourceTree = "<group>"; };
+		5231DB2D16DABFB4007CDB63 /* JCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCError.h; sourceTree = "<group>"; };
+		5231DB2E16DABFB4007CDB63 /* JCErrorm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCErrorm.m; sourceTree = "<group>"; };
+		5231DB3116DAC096007CDB63 /* JCConversionUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JCConversionUtilsTest.h; path = Delegate/JCConversionUtilsTest.h; sourceTree = "<group>"; };
+		5231DB3216DAC096007CDB63 /* JCConversionUtilsTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JCConversionUtilsTest.mm; path = Delegate/JCConversionUtilsTest.mm; sourceTree = "<group>"; };
+		5231DB3416DACDE6007CDB63 /* NilFileSystemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NilFileSystemTest.h; sourceTree = "<group>"; };
+		5231DB3516DACDE6007CDB63 /* NilFileSystemTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NilFileSystemTest.mm; sourceTree = "<group>"; };
+		5231DB3716DAD17A007CDB63 /* JCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		5231DB3816DAD17A007CDB63 /* JCAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCAppDelegate.mm; sourceTree = "<group>"; };
+		5231DB3C16DAD1E6007CDB63 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		52BA28C116D94C1A006DAC61 /* CoCo Disk Mounter Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoCo Disk Mounter Test.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52BA28C616D94C1A006DAC61 /* CoCo Disk Mounter Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoCo Disk Mounter Test-Info.plist"; sourceTree = "<group>"; };
+		52BA28C816D94C1A006DAC61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52BA28CD16D94C1A006DAC61 /* CoCo Disk Mounter Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoCo Disk Mounter Test-Prefix.pch"; sourceTree = "<group>"; };
+		52BA28DF16D95115006DAC61 /* DiskImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiskImage.h; sourceTree = "<group>"; };
+		52BA28E016D95115006DAC61 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		52BA28E116D95115006DAC61 /* FileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
+		52BA28E216D95115006DAC61 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		52BA28E316D95115006DAC61 /* IFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IFileSystem.cpp; sourceTree = "<group>"; };
+		52BA28E416D95115006DAC61 /* IFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFileSystem.h; sourceTree = "<group>"; };
+		52BA28E916D95115006DAC61 /* JVCDiskImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JVCDiskImage.cpp; sourceTree = "<group>"; };
+		52BA28EA16D95115006DAC61 /* JVCDiskImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVCDiskImage.h; sourceTree = "<group>"; };
+		52BA28EB16D95115006DAC61 /* NilFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NilFileSystem.cpp; sourceTree = "<group>"; };
+		52BA28EC16D95115006DAC61 /* NilFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NilFileSystem.h; sourceTree = "<group>"; };
+		52BA28ED16D95115006DAC61 /* RsDosFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RsDosFileSystem.cpp; sourceTree = "<group>"; };
+		52BA28EE16D95115006DAC61 /* RsDosFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RsDosFileSystem.h; sourceTree = "<group>"; };
+		52BA28F816D9512F006DAC61 /* JCConversionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCConversionUtils.h; sourceTree = "<group>"; };
+		52BA28F916D9512F006DAC61 /* JCFileSystemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFileSystemDelegate.h; sourceTree = "<group>"; };
+		52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCFileSystemDelegate.mm; sourceTree = "<group>"; };
+		52BA28FF16D95142006DAC61 /* ExceptionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptionTest.h; sourceTree = "<group>"; };
+		52BA290016D95142006DAC61 /* ExceptionTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExceptionTest.mm; sourceTree = "<group>"; };
+		52BA291F16D95506006DAC61 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OSXFUSE.framework; sourceTree = "<group>"; };
 		52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoCo Disk Mounter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F396CE168E5A5600E2BE13 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F396D1168E5A5600E2BE13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -40,43 +83,119 @@
 		52F396DA168E5A5700E2BE13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52F396DC168E5A5700E2BE13 /* CoCo Disk Mounter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoCo Disk Mounter-Prefix.pch"; sourceTree = "<group>"; };
 		52F396DE168E5A5700E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		52F396E0168E5A5700E2BE13 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
-		52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		52F396E4168E5A5700E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoCo Disk MounterTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		52F396F3168E5A5800E2BE13 /* CoCo Disk MounterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoCo Disk MounterTests-Info.plist"; sourceTree = "<group>"; };
-		52F396F5168E5A5800E2BE13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		52F396F7168E5A5800E2BE13 /* CoCo_Disk_MounterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoCo_Disk_MounterTests.h; sourceTree = "<group>"; };
-		52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoCo_Disk_MounterTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52BA28BD16D94C19006DAC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52BA28C216D94C1A006DAC61 /* SenTestingKit.framework in Frameworks */,
+				52BA28C316D94C1A006DAC61 /* Cocoa.framework in Frameworks */,
+				52BA292116D95506006DAC61 /* OSXFUSE.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F396C7168E5A5600E2BE13 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52F396CF168E5A5600E2BE13 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52F396E7168E5A5700E2BE13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52F396ED168E5A5700E2BE13 /* SenTestingKit.framework in Frameworks */,
-				52F396EE168E5A5700E2BE13 /* Cocoa.framework in Frameworks */,
+				52BA292016D95506006DAC61 /* OSXFUSE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5231DB2C16DABE29007CDB63 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5231DB2916DABD97007CDB63 /* JCErrorTest.h */,
+				5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */,
+				5231DB3116DAC096007CDB63 /* JCConversionUtilsTest.h */,
+				5231DB3216DAC096007CDB63 /* JCConversionUtilsTest.mm */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		52BA28C416D94C1A006DAC61 /* CoCo Disk Mounter Test */ = {
+			isa = PBXGroup;
+			children = (
+				5231DB2C16DABE29007CDB63 /* Delegate */,
+				52BA28C516D94C1A006DAC61 /* Supporting Files */,
+				52BA28FC16D95142006DAC61 /* Model */,
+			);
+			path = "CoCo Disk Mounter Test";
+			sourceTree = "<group>";
+		};
+		52BA28C516D94C1A006DAC61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52BA28C616D94C1A006DAC61 /* CoCo Disk Mounter Test-Info.plist */,
+				52BA28C716D94C1A006DAC61 /* InfoPlist.strings */,
+				52BA28CD16D94C1A006DAC61 /* CoCo Disk Mounter Test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52BA28DE16D95115006DAC61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52BA28DF16D95115006DAC61 /* DiskImage.h */,
+				52BA28E016D95115006DAC61 /* Exception.h */,
+				52BA28E116D95115006DAC61 /* FileSystem.cpp */,
+				52BA28E216D95115006DAC61 /* FileSystem.h */,
+				52BA28E316D95115006DAC61 /* IFileSystem.cpp */,
+				52BA28E416D95115006DAC61 /* IFileSystem.h */,
+				52BA28E916D95115006DAC61 /* JVCDiskImage.cpp */,
+				52BA28EA16D95115006DAC61 /* JVCDiskImage.h */,
+				52BA28EB16D95115006DAC61 /* NilFileSystem.cpp */,
+				52BA28EC16D95115006DAC61 /* NilFileSystem.h */,
+				52BA28ED16D95115006DAC61 /* RsDosFileSystem.cpp */,
+				52BA28EE16D95115006DAC61 /* RsDosFileSystem.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52BA28F616D9512F006DAC61 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52BA28F716D9512F006DAC61 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5231DB3716DAD17A007CDB63 /* JCAppDelegate.h */,
+				5231DB3816DAD17A007CDB63 /* JCAppDelegate.mm */,
+				5231DB2D16DABFB4007CDB63 /* JCError.h */,
+				5231DB2E16DABFB4007CDB63 /* JCErrorm.m */,
+				52BA28F816D9512F006DAC61 /* JCConversionUtils.h */,
+				52BA28F916D9512F006DAC61 /* JCFileSystemDelegate.h */,
+				52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		52BA28FC16D95142006DAC61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52BA28FF16D95142006DAC61 /* ExceptionTest.h */,
+				52BA290016D95142006DAC61 /* ExceptionTest.mm */,
+				5231DB3416DACDE6007CDB63 /* NilFileSystemTest.h */,
+				5231DB3516DACDE6007CDB63 /* NilFileSystemTest.mm */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		52F396BF168E5A5600E2BE13 = {
 			isa = PBXGroup;
 			children = (
 				52F396D4168E5A5600E2BE13 /* CoCo Disk Mounter */,
-				52F396F1168E5A5700E2BE13 /* CoCo Disk MounterTests */,
+				52BA28C416D94C1A006DAC61 /* CoCo Disk Mounter Test */,
 				52F396CD168E5A5600E2BE13 /* Frameworks */,
 				52F396CB168E5A5600E2BE13 /* Products */,
 			);
@@ -86,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */,
-				52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */,
+				52BA28C116D94C1A006DAC61 /* CoCo Disk Mounter Test.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +213,7 @@
 		52F396CD168E5A5600E2BE13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52BA291F16D95506006DAC61 /* OSXFUSE.framework */,
 				52F396CE168E5A5600E2BE13 /* Cocoa.framework */,
 				52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */,
 				52F396D0168E5A5600E2BE13 /* Other Frameworks */,
@@ -114,10 +234,10 @@
 		52F396D4168E5A5600E2BE13 /* CoCo Disk Mounter */ = {
 			isa = PBXGroup;
 			children = (
-				52F396E0168E5A5700E2BE13 /* JCAppDelegate.h */,
-				52F396E1168E5A5700E2BE13 /* JCAppDelegate.m */,
-				52F396E3168E5A5700E2BE13 /* MainMenu.xib */,
 				52F396D5168E5A5700E2BE13 /* Supporting Files */,
+				52BA28F616D9512F006DAC61 /* Controller */,
+				52BA28F716D9512F006DAC61 /* Delegate */,
+				52BA28DE16D95115006DAC61 /* Model */,
 			);
 			path = "CoCo Disk Mounter";
 			sourceTree = "<group>";
@@ -125,6 +245,7 @@
 		52F396D5168E5A5700E2BE13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5231DB3B16DAD1E5007CDB63 /* MainMenu.xib */,
 				52F396D6168E5A5700E2BE13 /* CoCo Disk Mounter-Info.plist */,
 				52F396D7168E5A5700E2BE13 /* InfoPlist.strings */,
 				52F396DA168E5A5700E2BE13 /* main.m */,
@@ -134,28 +255,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		52F396F1168E5A5700E2BE13 /* CoCo Disk MounterTests */ = {
-			isa = PBXGroup;
-			children = (
-				52F396F7168E5A5800E2BE13 /* CoCo_Disk_MounterTests.h */,
-				52F396F8168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m */,
-				52F396F2168E5A5800E2BE13 /* Supporting Files */,
-			);
-			path = "CoCo Disk MounterTests";
-			sourceTree = "<group>";
-		};
-		52F396F2168E5A5800E2BE13 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				52F396F3168E5A5800E2BE13 /* CoCo Disk MounterTests-Info.plist */,
-				52F396F4168E5A5800E2BE13 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		52BA28C016D94C19006DAC61 /* CoCo Disk Mounter Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52BA28CE16D94C1A006DAC61 /* Build configuration list for PBXNativeTarget "CoCo Disk Mounter Test" */;
+			buildPhases = (
+				52BA28BC16D94C19006DAC61 /* Sources */,
+				52BA28BD16D94C19006DAC61 /* Frameworks */,
+				52BA28BE16D94C19006DAC61 /* Resources */,
+				52BA28BF16D94C19006DAC61 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoCo Disk Mounter Test";
+			productName = "CoCo Disk Mounter Test";
+			productReference = 52BA28C116D94C1A006DAC61 /* CoCo Disk Mounter Test.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52F396FC168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk Mounter" */;
@@ -172,25 +292,6 @@
 			productName = "CoCo Disk Mounter";
 			productReference = 52F396CA168E5A5600E2BE13 /* CoCo Disk Mounter.app */;
 			productType = "com.apple.product-type.application";
-		};
-		52F396EA168E5A5700E2BE13 /* CoCo Disk MounterTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52F396FF168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk MounterTests" */;
-			buildPhases = (
-				52F396E6168E5A5700E2BE13 /* Sources */,
-				52F396E7168E5A5700E2BE13 /* Frameworks */,
-				52F396E8168E5A5700E2BE13 /* Resources */,
-				52F396E9168E5A5700E2BE13 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				52F396F0168E5A5700E2BE13 /* PBXTargetDependency */,
-			);
-			name = "CoCo Disk MounterTests";
-			productName = "CoCo Disk MounterTests";
-			productReference = 52F396EB168E5A5700E2BE13 /* CoCo Disk MounterTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -215,34 +316,34 @@
 			projectRoot = "";
 			targets = (
 				52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */,
-				52F396EA168E5A5700E2BE13 /* CoCo Disk MounterTests */,
+				52BA28C016D94C19006DAC61 /* CoCo Disk Mounter Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52BA28BE16D94C19006DAC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52BA28C916D94C1A006DAC61 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F396C8168E5A5600E2BE13 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52F396D9168E5A5700E2BE13 /* InfoPlist.strings in Resources */,
 				52F396DF168E5A5700E2BE13 /* Credits.rtf in Resources */,
-				52F396E5168E5A5700E2BE13 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52F396E8168E5A5700E2BE13 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52F396F6168E5A5800E2BE13 /* InfoPlist.strings in Resources */,
+				5231DB3D16DAD1E6007CDB63 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		52F396E9168E5A5700E2BE13 /* ShellScript */ = {
+		52BA28BF16D94C19006DAC61 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,34 +359,60 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52BA28BC16D94C19006DAC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52BA28EF16D95115006DAC61 /* FileSystem.cpp in Sources */,
+				52BA28F016D95115006DAC61 /* IFileSystem.cpp in Sources */,
+				52BA28F316D95115006DAC61 /* JVCDiskImage.cpp in Sources */,
+				52BA28F416D95115006DAC61 /* NilFileSystem.cpp in Sources */,
+				52BA28F516D95115006DAC61 /* RsDosFileSystem.cpp in Sources */,
+				52BA290216D95142006DAC61 /* ExceptionTest.mm in Sources */,
+				52BA292216D95609006DAC61 /* JCFileSystemDelegate.mm in Sources */,
+				5231DB2B16DABD97007CDB63 /* JCErrorTest.mm in Sources */,
+				5231DB3016DAC021007CDB63 /* JCErrorm.m in Sources */,
+				5231DB3316DAC096007CDB63 /* JCConversionUtilsTest.mm in Sources */,
+				5231DB3616DACDE6007CDB63 /* NilFileSystemTest.mm in Sources */,
+				5231DB3A16DAD184007CDB63 /* JCAppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F396C6168E5A5600E2BE13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BA290516D951A2006DAC61 /* FileSystem.cpp in Sources */,
+				52BA290716D951A2006DAC61 /* IFileSystem.cpp in Sources */,
+				52BA290D16D951A2006DAC61 /* JVCDiskImage.cpp in Sources */,
+				52BA290F16D951A2006DAC61 /* NilFileSystem.cpp in Sources */,
+				52BA291116D951A2006DAC61 /* RsDosFileSystem.cpp in Sources */,
 				52F396DB168E5A5700E2BE13 /* main.m in Sources */,
-				52F396E2168E5A5700E2BE13 /* JCAppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52F396E6168E5A5700E2BE13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52F396F9168E5A5800E2BE13 /* CoCo_Disk_MounterTests.m in Sources */,
+				52BA28FB16D9512F006DAC61 /* JCFileSystemDelegate.mm in Sources */,
+				5231DB2F16DABFB4007CDB63 /* JCErrorm.m in Sources */,
+				5231DB3916DAD17A007CDB63 /* JCAppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		52F396F0168E5A5700E2BE13 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 52F396C9168E5A5600E2BE13 /* CoCo Disk Mounter */;
-			targetProxy = 52F396EF168E5A5700E2BE13 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		5231DB3B16DAD1E5007CDB63 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5231DB3C16DAD1E6007CDB63 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		52BA28C716D94C1A006DAC61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52BA28C816D94C1A006DAC61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		52F396D7168E5A5700E2BE13 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -302,33 +429,57 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		52F396E3168E5A5700E2BE13 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52F396E4168E5A5700E2BE13 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		52F396F4168E5A5800E2BE13 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52F396F5168E5A5800E2BE13 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52BA28CF16D94C1A006DAC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		52BA28D016D94C1A006DAC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Prefix.pch";
+				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		52F396FA168E5A5800E2BE13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -345,6 +496,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = .;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -354,11 +506,11 @@
 		52F396FB168E5A5800E2BE13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
@@ -369,6 +521,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = .;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
@@ -377,11 +530,19 @@
 		52F396FD168E5A5800E2BE13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "CoCo Disk Mounter/CoCo Disk Mounter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,48 +550,34 @@
 		52F396FE168E5A5800E2BE13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
 				INFOPLIST_FILE = "CoCo Disk Mounter/CoCo Disk Mounter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		52F39700168E5A5800E2BE13 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoCo Disk Mounter.app/Contents/MacOS/CoCo Disk Mounter";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
-				INFOPLIST_FILE = "CoCo Disk MounterTests/CoCo Disk MounterTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		52F39701168E5A5800E2BE13 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoCo Disk Mounter.app/Contents/MacOS/CoCo Disk Mounter";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoCo Disk Mounter/CoCo Disk Mounter-Prefix.pch";
-				INFOPLIST_FILE = "CoCo Disk MounterTests/CoCo Disk MounterTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52BA28CE16D94C1A006DAC61 /* Build configuration list for PBXNativeTarget "CoCo Disk Mounter Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52BA28CF16D94C1A006DAC61 /* Debug */,
+				52BA28D016D94C1A006DAC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52F396C4168E5A5600E2BE13 /* Build configuration list for PBXProject "CoCo Disk Mounter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -447,14 +594,7 @@
 				52F396FE168E5A5800E2BE13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		52F396FF168E5A5800E2BE13 /* Build configuration list for PBXNativeTarget "CoCo Disk MounterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52F39700168E5A5800E2BE13 /* Debug */,
-				52F39701168E5A5800E2BE13 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

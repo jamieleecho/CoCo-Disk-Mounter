@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <OSXFUSE/OSXFUSE.h>
 
-@interface JCAppDelegate : NSObject <NSApplicationDelegate>
+@interface JCAppDelegate : NSObject <NSApplicationDelegate> {
+    GMUserFileSystem *filesystem;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 
