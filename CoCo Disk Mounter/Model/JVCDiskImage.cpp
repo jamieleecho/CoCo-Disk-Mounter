@@ -46,8 +46,8 @@ namespace CoCoDiskMounter {
         _file.read((char *)buffer + offset, bytesToRead);
         if (_file.fail())
             throw IOException("Read failed for some reason");
-                
-        return bytesToRead;
+        
+        return (int)_file.tellg() - fullOffset;
     }
     
     int JVCDiskImage::write(const unsigned char *buffer, int offset, int nchars, int track, int sector, int sectorOffset) {
@@ -62,7 +62,7 @@ namespace CoCoDiskMounter {
         if (_file.fail())
             throw IOException("Write failed for some reason");
         
-        return _fileSize;
+        return (int)_file.tellp() - fullOffset;
     }
     
     int JVCDiskImage::getPosition(int track, int sector, int sectorOffset) {

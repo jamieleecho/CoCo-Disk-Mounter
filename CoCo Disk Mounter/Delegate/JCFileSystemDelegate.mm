@@ -34,7 +34,8 @@
         NSString *dictValue = [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:attribute mapValue:value];
         
         // Put new pair into dictionary
-        dictionary[dictionaryAttribute] = dictValue;
+        if (dictionaryAttribute != nil)
+            dictionary[dictionaryAttribute] = dictValue;
     }
     
     return dictionary;
@@ -57,6 +58,8 @@
             return NSFilePosixPermissions;
         case CoCoDiskMounter::IFileSystem::AttributeOwnerAccountID:
             return NSFileOwnerAccountID;
+        case CoCoDiskMounter::IFileSystem::AttributeGroupOwnerAccountID:
+            return NSFileGroupOwnerAccountID;
         case CoCoDiskMounter::IFileSystem::AttributeSystemFileNumber:
             return NSFileSystemFileNumber;
         case CoCoDiskMounter::IFileSystem::AttributeSystemFileBackupDateKey:
