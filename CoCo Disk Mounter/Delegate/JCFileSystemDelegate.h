@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OSXFUSE/OSXFUSE.h>
 
 #include <memory>
 #include "IFileSystem.h"
@@ -20,11 +21,6 @@
  * @return attribute NSDictionary from attribute map.
  */
 + (NSDictionary *)attributeDictionaryFromMap:(const std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> &)map;
-
-/**
- * @return attribute map from attribute NSDictionary.
- */
-+ (void)attributeMap:(const std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> &)map fromDictionary:(NSDictionary *)dict;
 
 /**
  * @return a dictionary attribute from a map attribute.

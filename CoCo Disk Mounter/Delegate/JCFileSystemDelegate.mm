@@ -9,8 +9,6 @@
 #include <string>
 #include <map>
 
-#import <OSXFUSE/OSXFUSE.h>
-
 #include "../Model/Exception.h"
 #include "../Model/NilFileSystem.h"
 #import "../Delegate/JCError.h"
@@ -39,9 +37,6 @@
     }
     
     return dictionary;
-}
-
-+ (void)attributeMap:(const std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> &)map fromDictionary:(NSDictionary *)dict {
 }
 
 + (NSString *)dictionaryAttributeFromMapAttribute:(CoCoDiskMounter::IFileSystem::Attribute_t)attribute {
@@ -80,10 +75,11 @@
         case CoCoDiskMounter::IFileSystem::AttributeFileType:
             return [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:static_cast<CoCoDiskMounter::IFileSystem::FileType_t>(value)];
         
+        case CoCoDiskMounter::IFileSystem::AtributeFileModificationDate:
         case CoCoDiskMounter::IFileSystem::AttributeSystemFileBackupDateKey:
         case CoCoDiskMounter::IFileSystem::AttributeSystemFileChangeDateKey:
         case CoCoDiskMounter::IFileSystem::AttributeSystemFileAccessDateKey:
-            return [NSDate dateWithTimeIntervalSince1970:value/1000];
+            return [NSDate dateWithTimeIntervalSince1970:value/1000.0];
             
         default:
             return [NSNumber numberWithLong:value];
