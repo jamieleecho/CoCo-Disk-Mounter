@@ -99,6 +99,7 @@
     STAssertEqualObjects(NSFileTypeDirectory, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeDirectory], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeDirectory");
     STAssertEqualObjects(NSFileTypeSymbolicLink, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeSymbolicLink], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeSymbolicLink");
     STAssertEqualObjects(NSFileTypeUnknown, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:(CoCoDiskMounter::IFileSystem::FileType_t)100], @"dictionaryFileTypeFromMapFileType does not properly map invalid attributes");
+    
 }
 
 - (void)testFileOpenModeFromOpenMode {
@@ -106,9 +107,28 @@
     try {
         [JCFileSystemDelegate fileOpenModeFromOpenMode:O_RDWR];
         STFail(@"fileOpenModeFromOpenMode should only convert");
-    } catch(CoCoDiskMounter::IOException &ioe) {
-        
+    } catch(CoCoDiskMounter::IOException &ioe) {        
     }
+}
+
+- (void)testNilFileSystemUsedByDefaultInitializer {
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] init] autorelease];
+    NSError *error = nil;
+    id userData = nil;
+    STAssertEquals(0uL, [[target contentsOfDirectoryAtPath:@"/" error:&error] count], @"should return no directory entries");
+    STAssertNil(error, @"contentsOfDirectoryAtPath:error should return no error");
+    std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> mapAttributes;
+    STAssertEquals(0uL, [[target attributesOfItemAtPath:@"/" userData:nil error:&error] count], @"attributesOfItemAtPath:userData:error should return no attribute entries");
+    STAssertNil(error, @"attributesOfItemAtPath:userData:error should return no error");
+    STAssertTrue([target openFileAtPath:@"/foo/bar" mode:O_RDONLY userData:&userData error:&error], @"openFileAtPath:mode:userData:error should return true");
+    STAssertNil(error, @"openFileAtPath:mode:userData:error should return no error");
+    STAssertEqualObjects([NSNumber numberWithLong:0], userData, @"openFileAtPath:mode:userData:error should return no userData");
+    char buffer[1024];
+    STAssertEquals(0, [target readFileAtPath:@"/foo/bar" userData:userData buffer:buffer size:sizeof(buffer) offset:100 error:&error], @"readFileAtPath:userData:buffer:offset:error should return 0");
+    STAssertNil(error, @"readFileAtPath:userData:buffer:offset:error should return no error");
+    [target releaseFileAtPath:@"/foo/bar" userData:userData];
+    STAssertEquals(0uL, [[target extendedAttributesOfItemAtPath:@"/foo/bar" error:&error] count], @"extendedAttributesOfItemAtPath:error should return no attributes");
+    STAssertNil(error, @"extendedAttributesOfItemAtPath:error should return no error");
 }
 
 @end
