@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::directoryEntryForFile(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;):RsDosFileSystem.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::DirectoryEntry::getNumBytesUsedInLastSector() const:RsDosFileSystem.h">
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::DirectoryEntry::DirectoryEntry(std::__1::shared_ptr&lt;CoCoDiskMounter::DiskImage&gt;, int):RsDosFileSystem.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "FILE_ENTRY_FIRST_GRANULE_OFFSET">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::GranuleMap::clearGranuleVisitedMap():RsDosFileSystem.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "(bool [68])this-&gt;_granuleVisitedMap">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::GranuleMap::getNumSectors(int):RsDosFileSystem.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::contentsOfDirectoryAtPath(std::__1::vector&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;):RsDosFileSystem.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::readFile(void*, char*, unsigned long, unsigned long):RsDosFileSystem.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "+[JCFileSystemDelegate attributeDictionaryFromMap:]:JCFileSystemDelegate.mm">
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::RsDosFileSystem::getSpaceTerminatedString(unsigned char const*, int):RsDosFileSystem.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "buffer[3]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CoCoDiskMounter::JVCDiskImage::read(unsigned char*, int, int, int, int, int):JVCDiskImage.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "-[JCFileSystemDelegateTest testAttributeDictionaryFromMap]:JCFileSystemDelegateTest.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "obj.retainCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

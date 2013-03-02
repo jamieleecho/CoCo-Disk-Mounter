@@ -10,6 +10,7 @@
 #import <OSXFUSE/OSXFUSE.h>
 
 #include <memory>
+#include "../Model/Exception.h"
 #include "IFileSystem.h"
 
 @interface JCFileSystemDelegate : NSObject {

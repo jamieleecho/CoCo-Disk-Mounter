@@ -9,7 +9,6 @@
 #include <string>
 #include <map>
 
-#include "../Model/Exception.h"
 #include "../Model/NilFileSystem.h"
 #import "../Delegate/JCError.h"
 #import "JCFileSystemDelegate.h"

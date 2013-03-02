@@ -62,7 +62,7 @@
     [dictionary release];
 }
 
-- (void) testDictionaryAttributeFromMapAttribute {
+- (void)testDictionaryAttributeFromMapAttribute {
     STAssertEqualObjects(NSFileType, [JCFileSystemDelegate dictionaryAttributeFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeFileType], @"dictionaryAttributeFromMapAttribute does not properly map CoCoDiskMounter::IFileSystem::AttributeFileType");
     STAssertEqualObjects(NSFileSize, [JCFileSystemDelegate dictionaryAttributeFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeFileSize], @"dictionaryAttributeFromMapAttribute does not properly map CoCoDiskMounter::IFileSystem::AttributeFileSize");
     STAssertEqualObjects(NSFileModificationDate, [JCFileSystemDelegate dictionaryAttributeFromMapAttribute:CoCoDiskMounter::IFileSystem::AtributeFileModificationDate], @"dictionaryAttributeFromMapAttribute does not properly map CoCoDiskMounter::IFileSystem::AtributeFileModificationDate");
@@ -76,6 +76,39 @@
     STAssertEqualObjects(kGMUserFileSystemFileAccessDateKey, [JCFileSystemDelegate dictionaryAttributeFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileAccessDateKey], @"dictionaryAttributeFromMapAttribute does not properly map CoCoDiskMounter::IFileSystem::AttributeSystemFileAccessDateKey");
     STAssertEqualObjects(kGMUserFileSystemFileFlagsKey, [JCFileSystemDelegate dictionaryAttributeFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileFlagsKey], @"dictionaryAttributeFromMapAttribute does not properly map CoCoDiskMounter::IFileSystem::AttributeSystemFileFlagsKey");
     STAssertNil([JCFileSystemDelegate dictionaryAttributeFromMapAttribute:(CoCoDiskMounter::IFileSystem::Attribute_t)10000], @"dictionaryAttributeFromMapAttribute does not properly map invalid attributes");
+}
+
+- (void)testDictionaryAttributeValueFromMapAttribute {
+    STAssertEqualObjects(NSFileTypeRegular, [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeFileType mapValue:CoCoDiskMounter::IFileSystem::FileTypeRegular], @"dictionaryAttributeValueFromMapAttribute does not properly map file types");
+    STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)1001/1000.0], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AtributeFileModificationDate mapValue:1001], @"dictionaryAttributeValueFromMapAttribute does not properly map modified dates");
+    STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)1002/1000.0], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileBackupDateKey mapValue:1002], @"dictionaryAttributeValueFromMapAttribute does not properly map backup dates");
+    STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)1003/1000.0], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileBackupDateKey mapValue:1003], @"dictionaryAttributeValueFromMapAttribute does not properly map change dates");
+    STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)1004/1000.0], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileAccessDateKey mapValue:1004], @"dictionaryAttributeValueFromMapAttribute does not properly map file access dates");
+    STAssertEqualObjects([NSNumber numberWithLong:12345], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeFileSize mapValue:12345], @"dictionaryAttributeValueFromMapAttribute does not properly map file size");
+    STAssertEqualObjects([NSNumber numberWithLong:1234], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeFileSize mapValue:1234], @"dictionaryAttributeValueFromMapAttribute does not properly map file size");
+    STAssertEqualObjects([NSNumber numberWithLong:123], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributePosixPermissions mapValue:123], @"dictionaryAttributeValueFromMapAttribute does not properly map posix permissions");
+    STAssertEqualObjects([NSNumber numberWithLong:12], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeOwnerAccountID mapValue:12], @"dictionaryAttributeValueFromMapAttribute does not properly map account id");
+    STAssertEqualObjects([NSNumber numberWithLong:54321], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeGroupOwnerAccountID mapValue:54321], @"dictionaryAttributeValueFromMapAttribute does not properly map group account id");
+    STAssertEqualObjects([NSNumber numberWithLong:5432], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileFlagsKey mapValue:5432], @"dictionaryAttributeValueFromMapAttribute does not properly map group flags");
+    STAssertEqualObjects([NSNumber numberWithLong:5432], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:CoCoDiskMounter::IFileSystem::AttributeSystemFileNumber mapValue:5432], @"dictionaryAttributeValueFromMapAttribute does not properly map file number");
+    STAssertEqualObjects([NSNumber numberWithLong:543], [JCFileSystemDelegate dictionaryAttributeValueFromMapAttribute:(CoCoDiskMounter::IFileSystem::Attribute_t)1000 mapValue:543], @"dictionaryAttributeValueFromMapAttribute does not properly map invalid keys");
+}
+
+- (void)testDictionaryFileTypeFromMapFileType {
+    STAssertEqualObjects(NSFileTypeRegular, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeRegular], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeRegular");
+    STAssertEqualObjects(NSFileTypeDirectory, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeDirectory], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeDirectory");
+    STAssertEqualObjects(NSFileTypeSymbolicLink, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeSymbolicLink], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeSymbolicLink");
+    STAssertEqualObjects(NSFileTypeUnknown, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:(CoCoDiskMounter::IFileSystem::FileType_t)100], @"dictionaryFileTypeFromMapFileType does not properly map invalid attributes");
+}
+
+- (void)testFileOpenModeFromOpenMode {
+    STAssertEquals(CoCoDiskMounter::IFileSystem::FileOpenModeReadOnly, [JCFileSystemDelegate fileOpenModeFromOpenMode:O_RDONLY], @"fileOpenModeFromOpenMode does not properly map fileOpenModeFromOpenMode");
+    try {
+        [JCFileSystemDelegate fileOpenModeFromOpenMode:O_RDWR];
+        STFail(@"fileOpenModeFromOpenMode should only convert");
+    } catch(CoCoDiskMounter::IOException &ioe) {
+        
+    }
 }
 
 @end
