@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5213495B16E216E80084AD76 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5213495A16E216E80084AD76 /* OCMock.framework */; };
+		5231001C16E38AA200F31C81 /* libgmock_main.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5231001816E38AA200F31C81 /* libgmock_main.0.dylib */; };
+		5231001D16E38AA200F31C81 /* libgmock.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5231001916E38AA200F31C81 /* libgmock.0.dylib */; };
+		5231001E16E38AA200F31C81 /* libgtest_main.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5231001A16E38AA200F31C81 /* libgtest_main.0.dylib */; };
+		5231001F16E38AA200F31C81 /* libgtest.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5231001B16E38AA200F31C81 /* libgtest.0.dylib */; };
 		5231DB2B16DABD97007CDB63 /* JCErrorTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */; };
 		5231DB2F16DABFB4007CDB63 /* JCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCError.m */; };
 		5231DB3016DAC021007CDB63 /* JCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCError.m */; };
@@ -42,6 +47,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5213495A16E216E80084AD76 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
+		5231001816E38AA200F31C81 /* libgmock_main.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock_main.0.dylib; path = gmock/lib/.libs/libgmock_main.0.dylib; sourceTree = "<group>"; };
+		5231001916E38AA200F31C81 /* libgmock.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock.0.dylib; path = gmock/lib/.libs/libgmock.0.dylib; sourceTree = "<group>"; };
+		5231001A16E38AA200F31C81 /* libgtest_main.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest_main.0.dylib; path = gmock/lib/.libs/libgtest_main.0.dylib; sourceTree = "<group>"; };
+		5231001B16E38AA200F31C81 /* libgtest.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest.0.dylib; path = gmock/lib/.libs/libgtest.0.dylib; sourceTree = "<group>"; };
 		5231DB2916DABD97007CDB63 /* JCErrorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JCErrorTest.h; path = Delegate/JCErrorTest.h; sourceTree = "<group>"; };
 		5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JCErrorTest.mm; path = Delegate/JCErrorTest.mm; sourceTree = "<group>"; };
 		5231DB2D16DABFB4007CDB63 /* JCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCError.h; sourceTree = "<group>"; };
@@ -96,9 +106,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5231001C16E38AA200F31C81 /* libgmock_main.0.dylib in Frameworks */,
+				5231001D16E38AA200F31C81 /* libgmock.0.dylib in Frameworks */,
+				5231001E16E38AA200F31C81 /* libgtest_main.0.dylib in Frameworks */,
+				5231001F16E38AA200F31C81 /* libgtest.0.dylib in Frameworks */,
 				52BA28C216D94C1A006DAC61 /* SenTestingKit.framework in Frameworks */,
 				52BA28C316D94C1A006DAC61 /* Cocoa.framework in Frameworks */,
 				52BA292116D95506006DAC61 /* OSXFUSE.framework in Frameworks */,
+				5213495B16E216E80084AD76 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,11 +216,11 @@
 		52F396BF168E5A5600E2BE13 = {
 			isa = PBXGroup;
 			children = (
-				5231DB3E16DADA83007CDB63 /* README */,
 				52F396D4168E5A5600E2BE13 /* CoCo Disk Mounter */,
 				52BA28C416D94C1A006DAC61 /* CoCo Disk Mounter Test */,
 				52F396CD168E5A5600E2BE13 /* Frameworks */,
 				52F396CB168E5A5600E2BE13 /* Products */,
+				5231DB3E16DADA83007CDB63 /* README */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,10 +236,15 @@
 		52F396CD168E5A5600E2BE13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5213495A16E216E80084AD76 /* OCMock.framework */,
 				52BA291F16D95506006DAC61 /* OSXFUSE.framework */,
 				52F396CE168E5A5600E2BE13 /* Cocoa.framework */,
 				52F396EC168E5A5700E2BE13 /* SenTestingKit.framework */,
 				52F396D0168E5A5600E2BE13 /* Other Frameworks */,
+				5231001816E38AA200F31C81 /* libgmock_main.0.dylib */,
+				5231001916E38AA200F31C81 /* libgmock.0.dylib */,
+				5231001A16E38AA200F31C81 /* libgtest_main.0.dylib */,
+				5231001B16E38AA200F31C81 /* libgtest.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -456,8 +476,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					.,
+					"\"$(SRCROOT)/gmock/include\"",
+				);
 				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/gmock/lib/.libs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -476,8 +505,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					.,
+					"\"$(SRCROOT)/gmock/include\"",
+				);
 				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/gmock/lib/.libs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

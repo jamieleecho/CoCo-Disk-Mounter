@@ -9,6 +9,7 @@
 #import "JCFileSystemDelegateTest.h"
 
 #import "../../CoCo Disk Mounter/Delegate/JCFileSystemDelegate.h"
+#include "gmock/gmock.h"
 
 @implementation JCFileSystemDelegateTest
 

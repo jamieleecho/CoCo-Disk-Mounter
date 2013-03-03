@@ -8,3 +8,5 @@ This project seeks to be able to read and write all common Color Computer disk f
     5) DMK format support
 
 This project is written in Objective C++ because I wanted to refresh my knowledge of the STL which has expanded significantly since I last used it. This will also help me explore the impedance mismatches of Objective C and C++ while producing a subset of code that should work with Linux and Windows.
+
+This project is also hopefully an excuse to play with OCMock and Google Mock.
