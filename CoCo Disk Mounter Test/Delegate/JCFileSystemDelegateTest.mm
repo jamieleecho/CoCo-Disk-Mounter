@@ -9,6 +9,7 @@
 #import "JCFileSystemDelegateTest.h"
 
 #import "../../CoCo Disk Mounter/Delegate/JCFileSystemDelegate.h"
+#import "../../CoCo Disk Mounter/Model/NilFileSystem.h"
 #include "gmock/gmock.h"
 
 @implementation JCFileSystemDelegateTest
@@ -100,7 +101,6 @@
     STAssertEqualObjects(NSFileTypeDirectory, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeDirectory], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeDirectory");
     STAssertEqualObjects(NSFileTypeSymbolicLink, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:CoCoDiskMounter::IFileSystem::FileTypeSymbolicLink], @"dictionaryFileTypeFromMapFileType does not properly map FileTypeSymbolicLink");
     STAssertEqualObjects(NSFileTypeUnknown, [JCFileSystemDelegate dictionaryFileTypeFromMapFileType:(CoCoDiskMounter::IFileSystem::FileType_t)100], @"dictionaryFileTypeFromMapFileType does not properly map invalid attributes");
-    
 }
 
 - (void)testFileOpenModeFromOpenMode {
@@ -131,5 +131,60 @@
     STAssertEquals(0uL, [[target extendedAttributesOfItemAtPath:@"/foo/bar" error:&error] count], @"extendedAttributesOfItemAtPath:error should return no attributes");
     STAssertNil(error, @"extendedAttributesOfItemAtPath:error should return no error");
 }
+
+- (void)testReturnsContentsOfDirectoryPath {
+    class ContentOfDirectoryPathFileSystem : public CoCoDiskMounter::NilFileSystem {
+    public:
+        ContentOfDirectoryPathFileSystem() : shouldThrowException(false) { }
+        bool shouldThrowException;
+        std::string lastString;
+        void contentsOfDirectoryAtPath(std::vector<std::string> &contents, const std::string &path) {
+            contents.push_back("/hello world!");
+            contents.push_back("/hello ɕ!");
+            if (shouldThrowException)
+                throw CoCoDiskMounter::Exception("oops!");
+        }
+    };
+    
+    // Should return the contents
+    std::shared_ptr<ContentOfDirectoryPathFileSystem> dummyFileSystem(new  ContentOfDirectoryPathFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    NSArray *contents;
+    @autoreleasepool {
+        contents = [target contentsOfDirectoryAtPath:@"/foo/ɕ!" error:&error];
+        STAssertEquals(std::string("/foo/ɕ!"), dummyFileSystem->lastString, @"contentsOfDirectoryAtPath: path not being passed properly");
+        STAssertEquals(2, [contents count], @"contentsOfDirectoryAtPath: did not return correct number of entries");
+        STAssertEqualObjects(@"/hello world", contents[0], @"contentsOfDirectoryAtPath: first item not correct");
+        STAssertEqualObjects(@"/hello ɕ!", contents[0], @"contentsOfDirectoryAtPath: second item not correct");
+        STAssertNil(error, @"contentsOfDirectoryAtPath: error not nil");
+        [contents retain];
+    }
+    STAssertEquals(1, contents.retainCount, @"contentsOfDirectoryAtPath: content retainCount is incorrect");
+    [contents release];
+    
+    // Should forward error
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    @autoreleasepool {
+        dummyFileSystem->shouldThrowException = true;
+        STAssertNil([target contentsOfDirectoryAtPath:@"/foo/ɕ!" error:&error], @"contentsOfDirectoryAtPath: error does not return nil");
+        STAssertEqualObjects(@"myDomain", error.domain, @"contentsOfDirectoryAtPath: error domain is incorrect");
+        STAssertEquals(100u, error.code, @"contentsOfDirectoryAtPath: code domain is incorrect");
+    }
+}
+
+- (void)testAttributesOfItemAtPath {
+    class AttributesOfItemAtPathFileSystem : public CoCoDiskMounter::NilFileSystem {
+    public:
+        AttributesOfItemAtPathFileSystem() : shouldThrowException(false) { }
+        bool shouldThrowException;
+        std::string lastPath;
+        void getPropertiesOfFile(std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> &mapAttributes, const std::string &path) {
+            if (shouldThrowException)
+                throw CoCoDiskMounter::Exception("oops!");
+        }
+    };    
+}
+
 
 @end
