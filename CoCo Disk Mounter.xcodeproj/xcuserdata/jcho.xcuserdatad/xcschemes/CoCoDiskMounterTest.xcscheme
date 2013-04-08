@@ -18,7 +18,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52BA28C016D94C19006DAC61"
                BuildableName = "CoCo Disk Mounter Test.octest"
-               BlueprintName = "CoCo Disk Mounter Test"
+               BlueprintName = "CoCoDiskMounterTest"
                ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
             </BuildableReference>
          </TestableReference>

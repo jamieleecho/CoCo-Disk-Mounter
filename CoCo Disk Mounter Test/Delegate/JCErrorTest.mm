@@ -13,12 +13,13 @@
 
 - (void)testErrorConstants {
     STAssertEquals(@"CoCoDiskMounterErrorDomain", JCErrorDomain, @"");
-    STAssertEquals(1, JCErrorDomainIO, @"");
-    STAssertEquals(2, JCErrorDomainFileNotFound, @"");
-    STAssertEquals(3, JCErrorDomainFilePermission, @"");
-    STAssertEquals(4, JCErrorDomainBadFileFormat, @"");
-    STAssertEquals(5, JCErrorDomainNotADirectory, @"");
-    STAssertEquals(6, JCErrorDomainNotAFile, @"");
+    STAssertEquals(1l, JCErrorDomainGeneric, @"");
+    STAssertEquals(2l, JCErrorDomainIO, @"");
+    STAssertEquals(3l, JCErrorDomainFileNotFound, @"");
+    STAssertEquals(4l, JCErrorDomainFilePermission, @"");
+    STAssertEquals(5l, JCErrorDomainBadFileFormat, @"");
+    STAssertEquals(6l, JCErrorDomainNotADirectory, @"");
+    STAssertEquals(7l, JCErrorDomainNotAFile, @"");
 }
 
 @end

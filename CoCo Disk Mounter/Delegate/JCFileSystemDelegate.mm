@@ -124,8 +124,9 @@
     std::vector<std::string> contents;
     try {
         _fileSystem->contentsOfDirectoryAtPath(contents, std::string([dir UTF8String]));
+        *error = nil;
     } catch(CoCoDiskMounter::Exception &e) {
-        *error = [NSError errorWithDomain:@"myDomain" code:100 userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:e.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:e.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
         return nil;
     }
 
@@ -146,12 +147,16 @@
     try {
         std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> mapAttributes;
         _fileSystem->getPropertiesOfFile(mapAttributes, JCConvertNSStringToString(path));
+        *error = nil;
         return [JCFileSystemDelegate attributeDictionaryFromMap:mapAttributes];
     } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
         *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainNotAFile userInfo:nil];
         return nil;
     } catch(const CoCoDiskMounter::IOException &notFoundException) {
         *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
+        return nil;
+    } catch(const CoCoDiskMounter::Exception &exception) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:nil];
         return nil;
     }
 }
@@ -171,8 +176,8 @@
     } catch(const CoCoDiskMounter::IOException &notFoundException) {
         *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
         return NO;
-    } catch(const CoCoDiskMounter::Exception &ioe) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
+    } catch(const CoCoDiskMounter::Exception &e) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:nil];
         return NO;
     }
 }

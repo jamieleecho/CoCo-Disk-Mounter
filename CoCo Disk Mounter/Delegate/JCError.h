@@ -13,11 +13,12 @@
 extern NSString *JCErrorDomain;
 
 /** Errors to use with the JCErrorDomain */
-const int JCErrorDomainIO = 1;
-const int JCErrorDomainFileNotFound = 2;
-const int JCErrorDomainFilePermission = 3;
-const int JCErrorDomainBadFileFormat = 4;
-const int JCErrorDomainNotADirectory = 5;
-const int JCErrorDomainNotAFile = 6;
+const NSInteger JCErrorDomainGeneric = 1;
+const NSInteger JCErrorDomainIO = 2;
+const NSInteger JCErrorDomainFileNotFound = 3;
+const NSInteger JCErrorDomainFilePermission = 4;
+const NSInteger JCErrorDomainBadFileFormat = 5;
+const NSInteger JCErrorDomainNotADirectory = 6;
+const NSInteger JCErrorDomainNotAFile = 7;
 
 #endif
