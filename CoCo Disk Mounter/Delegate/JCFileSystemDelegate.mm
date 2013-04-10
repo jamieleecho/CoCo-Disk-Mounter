@@ -15,6 +15,25 @@
 
 #include "JCConversionUtils.h"
 
+bool JCFileSystemDelegateRunFunctionAndHandleExceptions(const std::function<void()>& func, NSError **error) {
+    try {
+        func();
+        *error = nil;
+        return true;
+    } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:notFoundException.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
+        return false;
+    } catch(const CoCoDiskMounter::IOException &notFoundException) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:notFoundException.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
+        return false;
+    } catch(const CoCoDiskMounter::Exception &exception) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:exception.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
+        return false;
+    } catch(...) {
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:@"Unknown Exception" forKey:NSLocalizedDescriptionKey]];
+        return false;
+    }
+}
 
 @implementation JCFileSystemDelegate
 
@@ -120,66 +139,46 @@
 }
 
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)dir error:(NSError **)error {
-    // Place directory contents into contents
     std::vector<std::string> contents;
-    try {
+    auto func = [self, dir, &contents] () mutable {
         _fileSystem->contentsOfDirectoryAtPath(contents, std::string([dir UTF8String]));
-        *error = nil;
-    } catch(CoCoDiskMounter::Exception &e) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:e.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
-        return nil;
-    }
-
-    // Transfer contents to array
-    NSMutableArray *contentArray = [NSMutableArray array];
-    for(std::vector<std::string>::iterator iter = contents.begin();
-        iter != contents.end();
-        iter++) {
-        [contentArray addObject:[NSString stringWithUTF8String:(*iter).c_str()]];
+    };
+    if (JCFileSystemDelegateRunFunctionAndHandleExceptions(func, error)) {
+        // Transfer contents to array
+        NSMutableArray *contentArray = [NSMutableArray array];
+        for(std::vector<std::string>::iterator iter = contents.begin();
+            iter != contents.end();
+            iter++) {
+            [contentArray addObject:[NSString stringWithUTF8String:(*iter).c_str()]];
+        }
+        return contentArray;
     }
     
-    return contentArray;
+    return nil;
 }
 
 - (NSDictionary *)attributesOfItemAtPath:(NSString *)path
                   userData:(id)userData
                   error:(NSError **)error {
-    try {
-        std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> mapAttributes;
+    std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> mapAttributes;
+    auto func = [self, path, &mapAttributes] () mutable {
         _fileSystem->getPropertiesOfFile(mapAttributes, JCConvertNSStringToString(path));
-        *error = nil;
+    };
+    if (JCFileSystemDelegateRunFunctionAndHandleExceptions(func, error))
         return [JCFileSystemDelegate attributeDictionaryFromMap:mapAttributes];
-    } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainNotAFile userInfo:nil];
-        return nil;
-    } catch(const CoCoDiskMounter::IOException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
-        return nil;
-    } catch(const CoCoDiskMounter::Exception &exception) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:nil];
-        return nil;
-    }
+    
+    return nil;
 }
 
 - (BOOL)openFileAtPath:(NSString *)path
                   mode:(int)mode
               userData:(id *)userData
                  error:(NSError **)error {
-    try {
+    auto func = [self, path, userData, mode] () mutable {
         CoCoDiskMounter::IFileSystem::FileOpenMode_t openMode = [JCFileSystemDelegate fileOpenModeFromOpenMode:mode];
         *userData = [NSNumber numberWithLong:(long)_fileSystem->openFileAtPath(JCConvertNSStringToString(path), openMode)];
-        *error = nil;
-        return YES;
-    } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainNotAFile userInfo:nil];
-        return NO;
-    } catch(const CoCoDiskMounter::IOException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
-        return NO;
-    } catch(const CoCoDiskMounter::Exception &e) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:nil];
-        return NO;
-    }
+    };
+    return JCFileSystemDelegateRunFunctionAndHandleExceptions(func, error);
 }
 
 - (void)releaseFileAtPath:(NSString *)path userData:(id)userData {
@@ -192,15 +191,11 @@
                  size:(size_t)size
                offset:(off_t)offset
                error:(NSError **)error {
-    try {
-        return (int)_fileSystem->readFile((void *)[userData longValue], buffer, size, offset);
-    } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainNotAFile userInfo:nil];
-        return -1;
-    } catch(const CoCoDiskMounter::IOException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:nil];
-        return -1;
-    }
+    int retval;
+    auto func = [self, path, buffer, size, offset, &retval, userData] () mutable {
+        retval = (int)_fileSystem->readFile((void *)[userData longValue], buffer, size, offset);
+    };
+    return JCFileSystemDelegateRunFunctionAndHandleExceptions(func, error) ? retval : -1;
 }
 
 - (NSArray *)extendedAttributesOfItemAtPath:path

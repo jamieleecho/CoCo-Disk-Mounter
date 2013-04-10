@@ -13,6 +13,15 @@
 #include "../Model/Exception.h"
 #include "IFileSystem.h"
 
+/**
+ * Runs func. If func throws a CoCoDiskMounter::Exception, sets *error
+ * to have the equivalent NSError. Otherwise sets *error to nil.
+ * @param[input] func function to run
+ * @param[output] error where to store the error if the func throws
+ * @return true if func did not throw and false otherwise
+ */
+bool JCFileSystemDelegateRunFunctionAndHandleExceptions(std::function<void()>& func, NSError **error);
+
 @interface JCFileSystemDelegate : NSObject {
     /** Represents the file system for this delegate */
     std::shared_ptr<CoCoDiskMounter::IFileSystem> _fileSystem;
