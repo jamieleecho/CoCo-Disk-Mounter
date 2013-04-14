@@ -11,7 +11,9 @@
 #import "../../CoCo Disk Mounter/Delegate/JCFileSystemDelegate.h"
 #import "../../CoCo Disk Mounter/Delegate/JCError.h"
 #import "../../CoCo Disk Mounter/Model/NilFileSystem.h"
-#include "gmock/gmock.h"
+#include "MockFileSystem.h"
+
+using namespace testing;
 
 @implementation JCFileSystemDelegateTest
 
@@ -214,6 +216,34 @@
         STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
         STAssertEqualObjects(JCErrorDomain, error.domain, @"attributesOfItemAtPath: error domain is incorrect");
         STAssertEquals(JCErrorDomainGeneric, error.code, @"attributesOfItemAtPath: code domain is incorrect");
+    }
+}
+
+- (void)testAttributesOfItemAtPath2 {
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    NSDictionary *attributes;
+    @autoreleasepool {
+        EXPECT_CALL((*dummyFileSystem), getPropertiesOfFile(_, _));
+        attributes = [target attributesOfItemAtPath:@"/foo/ɕ!" userData:(id)0x123456 error:&error];
+        //STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
+        //STAssertNil(error, @"attributesOfItemAtPath: error not nil");
+        //STAssertEquals(2ul, attributes.count, @"attributesOfItemAtPath: returned wrong number of items");
+        //STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:2000.0], attributes[NSFileModificationDate], @"attributesOfItemAtPath: did not return correct file modification date");
+        [attributes retain];
+    }
+    STAssertEquals(1ul, attributes.retainCount, @"attributesOfItemAtPath: attributes retainCount is incorrect");
+    [attributes release];
+    
+    // Should forward error
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    @autoreleasepool {
+        //dummyFileSystem->shouldThrowException = true;
+        //STAssertNil([target attributesOfItemAtPath:@"/foo/ɕ!" userData:(id)0x123456 error:&error], @"attributesOfItemAtPath: error does not return nil");
+        //STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
+        //STAssertEqualObjects(JCErrorDomain, error.domain, @"attributesOfItemAtPath: error domain is incorrect");
+        //STAssertEquals(JCErrorDomainGeneric, error.code, @"attributesOfItemAtPath: code domain is incorrect");
     }
 }
 

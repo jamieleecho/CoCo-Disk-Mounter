@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52F396C9168E5A5600E2BE13"
-               BuildableName = "CoCo Disk Mounter.app"
+               BuildableName = "CoCoDiskMounter.app"
                BlueprintName = "CoCoDiskMounter"
                ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52BA28C016D94C19006DAC61"
-               BuildableName = "CoCo Disk Mounter Test.octest"
+               BuildableName = "CoCoDiskMounterTest.octest"
                BlueprintName = "CoCoDiskMounterTest"
                ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52F396C9168E5A5600E2BE13"
-            BuildableName = "CoCo Disk Mounter.app"
+            BuildableName = "CoCoDiskMounter.app"
             BlueprintName = "CoCoDiskMounter"
             ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52F396C9168E5A5600E2BE13"
-            BuildableName = "CoCo Disk Mounter.app"
+            BuildableName = "CoCoDiskMounter.app"
             BlueprintName = "CoCoDiskMounter"
             ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52F396C9168E5A5600E2BE13"
-            BuildableName = "CoCo Disk Mounter.app"
+            BuildableName = "CoCoDiskMounter.app"
             BlueprintName = "CoCoDiskMounter"
             ReferencedContainer = "container:CoCo Disk Mounter.xcodeproj">
          </BuildableReference>
