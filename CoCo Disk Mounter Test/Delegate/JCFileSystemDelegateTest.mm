@@ -11,11 +11,17 @@
 #import "../../CoCo Disk Mounter/Delegate/JCFileSystemDelegate.h"
 #import "../../CoCo Disk Mounter/Delegate/JCError.h"
 #import "../../CoCo Disk Mounter/Model/NilFileSystem.h"
+#import "../helpers/GmockInitializer.h"
 #include "MockFileSystem.h"
 
 using namespace testing;
 
 @implementation JCFileSystemDelegateTest
+
+- (void)setUp {
+    [super setUp];
+    GmockInitializer::initialize();
+}
 
 - (void)testAttributeDictionaryFromMap {
     // Try adding only one entry
@@ -225,7 +231,7 @@ using namespace testing;
     NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
     NSDictionary *attributes;
     @autoreleasepool {
-        EXPECT_CALL((*dummyFileSystem), getPropertiesOfFile(_, _));
+        EXPECT_CALL((*dummyFileSystem), getPropertiesOfFile(_, "/foo/ɕ!"));
         attributes = [target attributesOfItemAtPath:@"/foo/ɕ!" userData:(id)0x123456 error:&error];
         //STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
         //STAssertNil(error, @"attributesOfItemAtPath: error not nil");

@@ -10,6 +10,7 @@
 #define CoCo_Disk_Mounter_MockFileSystem_h
 
 #include "gmock/gmock.h"
+#include "gtest/gtest.h"
 #import "../../CoCo Disk Mounter/Model/IFileSystem.h"
 
 namespace CoCoDiskMounterTest {

@@ -8919,7 +8919,7 @@ LD="/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld"
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 
 # A language specific compiler.
-CC="g++"
+CC="clang"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes

@@ -30,8 +30,8 @@ Kernel configured for up to 2 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1
 Primary memory available: 4.00 gigabytes
-Default processor set: 135 tasks, 575 threads, 2 processors
-Load average: 2.17, Mach factor: 1.00
+Default processor set: 136 tasks, 603 threads, 2 processors
+Load average: 2.41, Mach factor: 0.37
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
@@ -83,7 +83,7 @@ configure:3235: $? = 0
 configure:3224: gcc -v >&5
 Using built-in specs.
 Target: i686-apple-darwin11
-Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
 Thread model: posix
 gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
 configure:3235: $? = 0
@@ -129,39 +129,33 @@ configure:3713: checking for style of include used by make
 configure:3741: result: GNU
 configure:3766: checking dependency style of gcc
 configure:3876: result: gcc3
-configure:3949: checking for g++
-configure:3965: found /usr/bin/g++
-configure:3976: result: g++
 configure:4003: checking for C++ compiler version
-configure:4012: g++ --version >&5
-i686-apple-darwin11-llvm-g++-4.2 (GCC) 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
-Copyright (C) 2007 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-configure:4023: $? = 0
-configure:4012: g++ -v >&5
-Using built-in specs.
-Target: i686-apple-darwin11
-Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+configure:4012: clang --version >&5
+Apple LLVM version 4.2 (clang-425.0.27) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.3.0
 Thread model: posix
-gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
 configure:4023: $? = 0
-configure:4012: g++ -V >&5
-llvm-g++-4.2: argument to `-V' is missing
+configure:4012: clang -v >&5
+Apple LLVM version 4.2 (clang-425.0.27) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.3.0
+Thread model: posix
+configure:4023: $? = 0
+configure:4012: clang -V >&5
+clang: error: argument to '-V' is missing (expected 1 value)
+clang: error: no input files
 configure:4023: $? = 1
-configure:4012: g++ -qversion >&5
-i686-apple-darwin11-llvm-g++-4.2: no input files
+configure:4012: clang -qversion >&5
+clang: error: no input files
 configure:4023: $? = 1
 configure:4027: checking whether we are using the GNU C++ compiler
-configure:4046: g++ -c   conftest.cpp >&5
+configure:4046: clang -c -std=gnu++11 -stdlib=libc++  conftest.cpp >&5
 configure:4046: $? = 0
 configure:4055: result: yes
-configure:4064: checking whether g++ accepts -g
-configure:4084: g++ -c -g  conftest.cpp >&5
+configure:4064: checking whether clang accepts -g
+configure:4084: clang -c -g  conftest.cpp >&5
 configure:4084: $? = 0
 configure:4125: result: yes
-configure:4150: checking dependency style of g++
+configure:4150: checking dependency style of clang
 configure:4260: result: gcc3
 configure:4310: checking build system type
 configure:4324: result: i386-apple-darwin12.3.0
@@ -182,10 +176,10 @@ configure:4775: result: no
 configure:4787: checking for BSD- or MS-compatible name lister (nm)
 configure:4836: result: /usr/bin/nm
 configure:4954: checking the name lister (/usr/bin/nm) interface
-configure:4961: g++ -c -g -O2  conftest.cpp >&5
+configure:4961: clang -c -std=gnu++11 -stdlib=libc++  conftest.cpp >&5
 configure:4964: /usr/bin/nm "conftest.o"
 configure:4967: output
-00000000000001b8 S _some_variable
+0000000000000000 S _some_variable
 configure:4974: result: BSD nm
 configure:4977: checking whether ln -s works
 configure:4981: result: yes
@@ -211,16 +205,16 @@ configure:5776: checking for ranlib
 configure:5792: found /usr/bin/ranlib
 configure:5803: result: ranlib
 configure:5893: checking command to parse /usr/bin/nm output from gcc object
-configure:6011: g++ -c -g -O2  conftest.cpp >&5
+configure:6011: clang -c -std=gnu++11 -stdlib=libc++  conftest.cpp >&5
 configure:6014: $? = 0
 configure:6018: /usr/bin/nm conftest.o \| sed -n -e 's/^.*[	 ]\([BCDEGRST][BCDEGRST]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' \> conftest.nm
 configure:6021: $? = 0
 cannot find nm_test_var in conftest.nm
-configure:6011: g++ -c -g -O2  conftest.cpp >&5
+configure:6011: clang -c -std=gnu++11 -stdlib=libc++  conftest.cpp >&5
 configure:6014: $? = 0
 configure:6018: /usr/bin/nm conftest.o \| sed -n -e 's/^.*[	 ]\([BCDEGRST][BCDEGRST]*\)[	 ][	 ]*_\([_A-Za-z][_A-Za-z0-9]*\)$/\1 _\2 \2/p' \> conftest.nm
 configure:6021: $? = 0
-configure:6075: g++ -o conftest -g -O2   conftest.cpp conftstm.o >&5
+configure:6075: clang -o conftest -std=gnu++11 -stdlib=libc++   conftest.cpp conftstm.o >&5
 configure:6078: $? = 0
 configure:6116: result: ok
 configure:6381: checking for dsymutil
@@ -241,7 +235,7 @@ configure:6824: checking for -single_module linker flag
 gcc -g -O2  -o libconftest.dylib -dynamiclib -Wl,-single_module conftest.c
 configure:6851: result: yes
 configure:6853: checking for -exported_symbols_list linker flag
-configure:6873: g++ -o conftest -g -O2   -Wl,-exported_symbols_list,conftest.sym conftest.cpp  >&5
+configure:6873: clang -o conftest -std=gnu++11 -stdlib=libc++   -Wl,-exported_symbols_list,conftest.sym conftest.cpp  >&5
 configure:6873: $? = 0
 configure:6883: result: yes
 configure:6925: checking how to run the C preprocessor
@@ -329,37 +323,37 @@ configure:7190: gcc -c -g -O2  conftest.c >&5
 configure:7190: $? = 0
 configure:7190: result: yes
 configure:7315: checking for C++ compiler version
-configure:7324: g++ --version >&5
-i686-apple-darwin11-llvm-g++-4.2 (GCC) 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
-Copyright (C) 2007 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-configure:7335: $? = 0
-configure:7324: g++ -v >&5
-Using built-in specs.
-Target: i686-apple-darwin11
-Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~148/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+configure:7324: clang --version >&5
+Apple LLVM version 4.2 (clang-425.0.27) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.3.0
 Thread model: posix
-gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
 configure:7335: $? = 0
-configure:7324: g++ -V >&5
-llvm-g++-4.2: argument to `-V' is missing
+configure:7324: clang -v >&5
+Apple LLVM version 4.2 (clang-425.0.27) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.3.0
+Thread model: posix
+configure:7335: $? = 0
+configure:7324: clang -V >&5
+clang: error: argument to '-V' is missing (expected 1 value)
+clang: error: no input files
 configure:7335: $? = 1
-configure:7324: g++ -qversion >&5
-i686-apple-darwin11-llvm-g++-4.2: no input files
+configure:7324: clang -qversion >&5
+clang: error: no input files
 configure:7335: $? = 1
 configure:7339: checking whether we are using the GNU C++ compiler
 configure:7367: result: yes
-configure:7376: checking whether g++ accepts -g
+configure:7376: checking whether clang accepts -g
 configure:7437: result: yes
-configure:7462: checking dependency style of g++
+configure:7462: checking dependency style of clang
 configure:7572: result: gcc3
 configure:7595: checking how to run the C++ preprocessor
-configure:7622: g++ -E  conftest.cpp
+configure:7622: clang -E  conftest.cpp
 configure:7622: $? = 0
-configure:7636: g++ -E  conftest.cpp
-conftest.cpp:22:28: error: ac_nonexistent.h: No such file or directory
+configure:7636: clang -E  conftest.cpp
+conftest.cpp:22:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
 configure:7636: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -384,11 +378,14 @@ configure: failed program was:
 | #define HAVE_DLFCN_H 1
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:7661: result: g++ -E
-configure:7681: g++ -E  conftest.cpp
+configure:7661: result: clang -E
+configure:7681: clang -E  conftest.cpp
 configure:7681: $? = 0
-configure:7695: g++ -E  conftest.cpp
-conftest.cpp:22:28: error: ac_nonexistent.h: No such file or directory
+configure:7695: clang -E  conftest.cpp
+conftest.cpp:22:10: fatal error: 'ac_nonexistent.h' file not found
+#include <ac_nonexistent.h>
+         ^
+1 error generated.
 configure:7695: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -448,29 +445,29 @@ configure:11369: checking whether to build shared libraries
 configure:11390: result: yes
 configure:11393: checking whether to build static libraries
 configure:11397: result: yes
-configure:11547: checking for ld used by g++
+configure:11547: checking for ld used by clang
 configure:11614: result: /usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld
 configure:11621: checking if the linker (/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld) is GNU ld
 configure:11636: result: no
-configure:11691: checking whether the g++ linker (/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld) supports shared libraries
+configure:11691: checking whether the clang linker (/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld) supports shared libraries
 configure:12604: result: yes
-configure:12632: g++ -c -g -O2  conftest.cpp >&5
+configure:12632: clang -c -std=gnu++11 -stdlib=libc++  conftest.cpp >&5
 configure:12635: $? = 0
-configure:12817: checking for g++ option to produce PIC
+configure:12817: checking for clang option to produce PIC
 configure:13134: result: -fno-common -DPIC
-configure:13143: checking if g++ PIC flag -fno-common -DPIC works
-configure:13161: g++ -c -g -O2  -fno-common -DPIC -DPIC conftest.cpp >&5
+configure:13143: checking if clang PIC flag -fno-common -DPIC works
+configure:13161: clang -c -std=gnu++11 -stdlib=libc++  -fno-common -DPIC -DPIC conftest.cpp >&5
 configure:13165: $? = 0
 configure:13178: result: yes
-configure:13199: checking if g++ static flag -static works
+configure:13199: checking if clang static flag -static works
 configure:13227: result: no
-configure:13239: checking if g++ supports -c -o file.o
-configure:13260: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
+configure:13239: checking if clang supports -c -o file.o
+configure:13260: clang -c -std=gnu++11 -stdlib=libc++  -o out/conftest2.o conftest.cpp >&5
 configure:13264: $? = 0
 configure:13286: result: yes
-configure:13291: checking if g++ supports -c -o file.o
+configure:13291: checking if clang supports -c -o file.o
 configure:13338: result: yes
-configure:13368: checking whether the g++ linker (/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld) supports shared libraries
+configure:13368: checking whether the clang linker (/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/ld) supports shared libraries
 configure:13397: result: yes
 configure:13534: checking dynamic linker characteristics
 configure:14145: result: darwin12.3.0 dyld
@@ -589,10 +586,11 @@ on macbook.home
 config.status:1139: creating Makefile
 config.status:1139: creating scripts/gmock-config
 config.status:1139: creating build-aux/config.h
+config.status:1311: build-aux/config.h is unchanged
 config.status:1359: executing depfiles commands
 config.status:1359: executing libtool commands
 configure:17717: === configuring in gtest (/Users/jcho/Documents/Projects/CoCoDiskMounter/gmock/gtest)
-configure:17780: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  'GTEST_CPPFLAGS=' --cache-file=/dev/null --srcdir=.
+configure:17780: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  'CPPFLAGS=' 'CXX=clang' 'CXXFLAGS=-std=gnu++11 -stdlib=libc++' 'GTEST_CPPFLAGS=' --cache-file=/dev/null --srcdir=.
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -607,16 +605,16 @@ ac_cv_env_CC_set=
 ac_cv_env_CC_value=
 ac_cv_env_CFLAGS_set=
 ac_cv_env_CFLAGS_value=
-ac_cv_env_CPPFLAGS_set=
+ac_cv_env_CPPFLAGS_set=set
 ac_cv_env_CPPFLAGS_value=
 ac_cv_env_CPP_set=
 ac_cv_env_CPP_value=
 ac_cv_env_CXXCPP_set=
 ac_cv_env_CXXCPP_value=
-ac_cv_env_CXXFLAGS_set=
-ac_cv_env_CXXFLAGS_value=
-ac_cv_env_CXX_set=
-ac_cv_env_CXX_value=
+ac_cv_env_CXXFLAGS_set=set
+ac_cv_env_CXXFLAGS_value='-std=gnu++11 -stdlib=libc++'
+ac_cv_env_CXX_set=set
+ac_cv_env_CXX_value=clang
 ac_cv_env_GTEST_CONFIG_set=
 ac_cv_env_GTEST_CONFIG_value=
 ac_cv_env_GTEST_CPPFLAGS_set=set
@@ -660,10 +658,9 @@ ac_cv_path_SED=/usr/bin/sed
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_prog_AWK=awk
 ac_cv_prog_CPP='gcc -E'
-ac_cv_prog_CXXCPP='g++ -E'
+ac_cv_prog_CXXCPP='clang -E'
 ac_cv_prog_ac_ct_AR=ar
 ac_cv_prog_ac_ct_CC=gcc
-ac_cv_prog_ac_ct_CXX=g++
 ac_cv_prog_ac_ct_DSYMUTIL=dsymutil
 ac_cv_prog_ac_ct_LIPO=lipo
 ac_cv_prog_ac_ct_NMEDIT=nmedit
@@ -721,10 +718,10 @@ CCDEPMODE='depmode=gcc3'
 CFLAGS='-g -O2'
 CPP='gcc -E'
 CPPFLAGS=''
-CXX='g++'
-CXXCPP='g++ -E'
+CXX='clang'
+CXXCPP='clang -E'
 CXXDEPMODE='depmode=gcc3'
-CXXFLAGS='-g -O2'
+CXXFLAGS='-std=gnu++11 -stdlib=libc++'
 CYGPATH_W='echo'
 DEFS='-DHAVE_CONFIG_H'
 DEPDIR='.deps'
@@ -786,7 +783,7 @@ SHELL='/bin/sh'
 STRIP='strip'
 VERSION='1.6.0'
 ac_ct_CC='gcc'
-ac_ct_CXX='g++'
+ac_ct_CXX=''
 ac_ct_DUMPBIN=''
 acx_pthread_config=''
 am__EXEEXT_FALSE=''

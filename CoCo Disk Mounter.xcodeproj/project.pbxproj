@@ -8,6 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		5213495B16E216E80084AD76 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5213495A16E216E80084AD76 /* OCMock.framework */; };
+		5219FD28171B6B89000DDB31 /* libgmock_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD26171B6B89000DDB31 /* libgmock_main.a */; };
+		5219FD29171B6B89000DDB31 /* libgmock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD27171B6B89000DDB31 /* libgmock.a */; };
+		5219FD2C171B6BAA000DDB31 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD2A171B6BAA000DDB31 /* libgtest_main.a */; };
+		5219FD2D171B6BAA000DDB31 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD2B171B6BAA000DDB31 /* libgtest.a */; };
+		5219FD32171B6C00000DDB31 /* libgtest_main.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD2E171B6C00000DDB31 /* libgtest_main.0.dylib */; };
+		5219FD33171B6C00000DDB31 /* libgtest_main.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD2F171B6C00000DDB31 /* libgtest_main.dylib */; };
+		5219FD34171B6C00000DDB31 /* libgtest.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD30171B6C00000DDB31 /* libgtest.0.dylib */; };
+		5219FD35171B6C00000DDB31 /* libgtest.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD31171B6C00000DDB31 /* libgtest.dylib */; };
+		5219FD3A171B6C26000DDB31 /* libgmock_main.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD36171B6C26000DDB31 /* libgmock_main.0.dylib */; };
+		5219FD3B171B6C26000DDB31 /* libgmock_main.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD37171B6C26000DDB31 /* libgmock_main.dylib */; };
+		5219FD3C171B6C26000DDB31 /* libgmock.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD38171B6C26000DDB31 /* libgmock.0.dylib */; };
+		5219FD3D171B6C26000DDB31 /* libgmock.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219FD39171B6C26000DDB31 /* libgmock.dylib */; };
+		5219FD3E171B6C38000DDB31 /* libgmock_main.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD36171B6C26000DDB31 /* libgmock_main.0.dylib */; };
+		5219FD3F171B6C39000DDB31 /* libgmock_main.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD37171B6C26000DDB31 /* libgmock_main.dylib */; };
+		5219FD40171B6C3C000DDB31 /* libgmock.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD38171B6C26000DDB31 /* libgmock.0.dylib */; };
+		5219FD41171B6C45000DDB31 /* libgmock.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD39171B6C26000DDB31 /* libgmock.dylib */; };
+		5219FD42171B6C48000DDB31 /* libgtest_main.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD2E171B6C00000DDB31 /* libgtest_main.0.dylib */; };
+		5219FD43171B6C4B000DDB31 /* libgtest_main.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD2F171B6C00000DDB31 /* libgtest_main.dylib */; };
+		5219FD44171B6C4F000DDB31 /* libgtest.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD30171B6C00000DDB31 /* libgtest.0.dylib */; };
+		5219FD45171B6C51000DDB31 /* libgtest.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5219FD31171B6C00000DDB31 /* libgtest.dylib */; };
+		5219FD49171B6EE7000DDB31 /* GmockInitializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5219FD47171B6EE7000DDB31 /* GmockInitializer.cpp */; };
 		5231DB2B16DABD97007CDB63 /* JCErrorTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */; };
 		5231DB2F16DABFB4007CDB63 /* JCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCError.m */; };
 		5231DB3016DAC021007CDB63 /* JCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231DB2E16DABFB4007CDB63 /* JCError.m */; };
@@ -54,7 +75,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				5219FD45171B6C51000DDB31 /* libgtest.dylib in CopyFiles */,
+				5219FD42171B6C48000DDB31 /* libgtest_main.0.dylib in CopyFiles */,
 				52EEF1B11712426D00FA8099 /* OCMock.framework in CopyFiles */,
+				5219FD3E171B6C38000DDB31 /* libgmock_main.0.dylib in CopyFiles */,
+				5219FD3F171B6C39000DDB31 /* libgmock_main.dylib in CopyFiles */,
+				5219FD40171B6C3C000DDB31 /* libgmock.0.dylib in CopyFiles */,
+				5219FD41171B6C45000DDB31 /* libgmock.dylib in CopyFiles */,
+				5219FD43171B6C4B000DDB31 /* libgtest_main.dylib in CopyFiles */,
+				5219FD44171B6C4F000DDB31 /* libgtest.0.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +91,20 @@
 
 /* Begin PBXFileReference section */
 		5213495A16E216E80084AD76 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
+		5219FD26171B6B89000DDB31 /* libgmock_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmock_main.a; path = gmock/lib/.libs/libgmock_main.a; sourceTree = "<group>"; };
+		5219FD27171B6B89000DDB31 /* libgmock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmock.a; path = gmock/lib/.libs/libgmock.a; sourceTree = "<group>"; };
+		5219FD2A171B6BAA000DDB31 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = gmock/gtest/lib/.libs/libgtest_main.a; sourceTree = "<group>"; };
+		5219FD2B171B6BAA000DDB31 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = gmock/gtest/lib/.libs/libgtest.a; sourceTree = "<group>"; };
+		5219FD2E171B6C00000DDB31 /* libgtest_main.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest_main.0.dylib; path = gmock/gtest/lib/.libs/libgtest_main.0.dylib; sourceTree = "<group>"; };
+		5219FD2F171B6C00000DDB31 /* libgtest_main.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest_main.dylib; path = gmock/gtest/lib/.libs/libgtest_main.dylib; sourceTree = "<group>"; };
+		5219FD30171B6C00000DDB31 /* libgtest.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest.0.dylib; path = gmock/gtest/lib/.libs/libgtest.0.dylib; sourceTree = "<group>"; };
+		5219FD31171B6C00000DDB31 /* libgtest.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgtest.dylib; path = gmock/gtest/lib/.libs/libgtest.dylib; sourceTree = "<group>"; };
+		5219FD36171B6C26000DDB31 /* libgmock_main.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock_main.0.dylib; path = gmock/lib/.libs/libgmock_main.0.dylib; sourceTree = "<group>"; };
+		5219FD37171B6C26000DDB31 /* libgmock_main.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock_main.dylib; path = gmock/lib/.libs/libgmock_main.dylib; sourceTree = "<group>"; };
+		5219FD38171B6C26000DDB31 /* libgmock.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock.0.dylib; path = gmock/lib/.libs/libgmock.0.dylib; sourceTree = "<group>"; };
+		5219FD39171B6C26000DDB31 /* libgmock.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmock.dylib; path = gmock/lib/.libs/libgmock.dylib; sourceTree = "<group>"; };
+		5219FD47171B6EE7000DDB31 /* GmockInitializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GmockInitializer.cpp; path = Helpers/GmockInitializer.cpp; sourceTree = "<group>"; };
+		5219FD48171B6EE7000DDB31 /* GmockInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GmockInitializer.h; path = Helpers/GmockInitializer.h; sourceTree = "<group>"; };
 		5231DB2916DABD97007CDB63 /* JCErrorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JCErrorTest.h; path = Delegate/JCErrorTest.h; sourceTree = "<group>"; };
 		5231DB2A16DABD97007CDB63 /* JCErrorTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JCErrorTest.mm; path = Delegate/JCErrorTest.mm; sourceTree = "<group>"; };
 		5231DB2D16DABFB4007CDB63 /* JCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCError.h; sourceTree = "<group>"; };
@@ -122,6 +165,18 @@
 				52EEF1A1171238AB00FA8099 /* AppKit.framework in Frameworks */,
 				5213495B16E216E80084AD76 /* OCMock.framework in Frameworks */,
 				52EEF1A2171238B300FA8099 /* Foundation.framework in Frameworks */,
+				5219FD28171B6B89000DDB31 /* libgmock_main.a in Frameworks */,
+				5219FD29171B6B89000DDB31 /* libgmock.a in Frameworks */,
+				5219FD2C171B6BAA000DDB31 /* libgtest_main.a in Frameworks */,
+				5219FD2D171B6BAA000DDB31 /* libgtest.a in Frameworks */,
+				5219FD32171B6C00000DDB31 /* libgtest_main.0.dylib in Frameworks */,
+				5219FD33171B6C00000DDB31 /* libgtest_main.dylib in Frameworks */,
+				5219FD34171B6C00000DDB31 /* libgtest.0.dylib in Frameworks */,
+				5219FD35171B6C00000DDB31 /* libgtest.dylib in Frameworks */,
+				5219FD3A171B6C26000DDB31 /* libgmock_main.0.dylib in Frameworks */,
+				5219FD3B171B6C26000DDB31 /* libgmock_main.dylib in Frameworks */,
+				5219FD3C171B6C26000DDB31 /* libgmock.0.dylib in Frameworks */,
+				5219FD3D171B6C26000DDB31 /* libgmock.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +194,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5219FD46171B6EB6000DDB31 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5219FD47171B6EE7000DDB31 /* GmockInitializer.cpp */,
+				5219FD48171B6EE7000DDB31 /* GmockInitializer.h */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		5231DB2C16DABE29007CDB63 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +220,7 @@
 		52BA28C416D94C1A006DAC61 /* CoCo Disk Mounter Test */ = {
 			isa = PBXGroup;
 			children = (
+				5219FD46171B6EB6000DDB31 /* Helpers */,
 				5231DB2C16DABE29007CDB63 /* Delegate */,
 				52BA28C516D94C1A006DAC61 /* Supporting Files */,
 				52BA28FC16D95142006DAC61 /* Model */,
@@ -247,6 +312,18 @@
 		52F396CD168E5A5600E2BE13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5219FD36171B6C26000DDB31 /* libgmock_main.0.dylib */,
+				5219FD37171B6C26000DDB31 /* libgmock_main.dylib */,
+				5219FD38171B6C26000DDB31 /* libgmock.0.dylib */,
+				5219FD39171B6C26000DDB31 /* libgmock.dylib */,
+				5219FD2E171B6C00000DDB31 /* libgtest_main.0.dylib */,
+				5219FD2F171B6C00000DDB31 /* libgtest_main.dylib */,
+				5219FD30171B6C00000DDB31 /* libgtest.0.dylib */,
+				5219FD31171B6C00000DDB31 /* libgtest.dylib */,
+				5219FD26171B6B89000DDB31 /* libgmock_main.a */,
+				5219FD27171B6B89000DDB31 /* libgmock.a */,
+				5219FD2A171B6BAA000DDB31 /* libgtest_main.a */,
+				5219FD2B171B6BAA000DDB31 /* libgtest.a */,
 				5213495A16E216E80084AD76 /* OCMock.framework */,
 				52BA291F16D95506006DAC61 /* OSXFUSE.framework */,
 				52F396CE168E5A5600E2BE13 /* Cocoa.framework */,
@@ -412,6 +489,7 @@
 				5231DB3616DACDE6007CDB63 /* NilFileSystemTest.mm in Sources */,
 				5231DB3A16DAD184007CDB63 /* JCAppDelegate.mm in Sources */,
 				52EEF19B17122D8400FA8099 /* JCFileSystemDelegateTest.mm in Sources */,
+				5219FD49171B6EE7000DDB31 /* GmockInitializer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,11 +569,12 @@
 				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/gmock/gtest/lib/.libs\"",
 					"\"$(SRCROOT)/gmock/lib/.libs\"",
-					"\"$(SRCROOT)/gmock/gmock-1.6.0/lib/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -514,10 +593,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"GTEST_USE_OWN_TR1_TUPLE=1",
-					"GTEST_HAS_TR1_TUPLE=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					.,
 					"\"$(SRCROOT)/gmock/include\"",
@@ -526,11 +602,12 @@
 				INFOPLIST_FILE = "CoCo Disk Mounter Test/CoCo Disk Mounter Test-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/gmock/gtest/lib/.libs\"",
 					"\"$(SRCROOT)/gmock/lib/.libs\"",
-					"\"$(SRCROOT)/gmock/gmock-1.6.0/lib/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -553,8 +630,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"GTEST_USE_OWN_TR1_TUPLE=1",
-					"GTEST_HAS_TR1_TUPLE=0",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -565,6 +640,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -582,10 +658,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"GTEST_USE_OWN_TR1_TUPLE=1",
-					"GTEST_HAS_TR1_TUPLE=0",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -593,6 +666,7 @@
 				HEADER_SEARCH_PATHS = .;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -613,6 +687,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/gmock/lib/.libs\"",
+					"\"$(SRCROOT)/gmock/gtest/lib/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
@@ -636,6 +711,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/gmock/lib/.libs\"",
+					"\"$(SRCROOT)/gmock/gtest/lib/.libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
