@@ -30,8 +30,8 @@ Kernel configured for up to 2 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1
 Primary memory available: 4.00 gigabytes
-Default processor set: 141 tasks, 597 threads, 2 processors
-Load average: 0.97, Mach factor: 1.02
+Default processor set: 135 tasks, 575 threads, 2 processors
+Load average: 2.17, Mach factor: 1.00
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
@@ -589,9 +589,10 @@ on macbook.home
 config.status:1139: creating Makefile
 config.status:1139: creating scripts/gmock-config
 config.status:1139: creating build-aux/config.h
-config.status:1311: build-aux/config.h is unchanged
 config.status:1359: executing depfiles commands
 config.status:1359: executing libtool commands
+configure:17717: === configuring in gtest (/Users/jcho/Documents/Projects/CoCoDiskMounter/gmock/gtest)
+configure:17780: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  'GTEST_CPPFLAGS=' --cache-file=/dev/null --srcdir=.
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -618,7 +619,7 @@ ac_cv_env_CXX_set=
 ac_cv_env_CXX_value=
 ac_cv_env_GTEST_CONFIG_set=
 ac_cv_env_GTEST_CONFIG_value=
-ac_cv_env_GTEST_CPPFLAGS_set=
+ac_cv_env_GTEST_CPPFLAGS_set=set
 ac_cv_env_GTEST_CPPFLAGS_value=
 ac_cv_env_GTEST_CXXFLAGS_set=
 ac_cv_env_GTEST_CXXFLAGS_value=
