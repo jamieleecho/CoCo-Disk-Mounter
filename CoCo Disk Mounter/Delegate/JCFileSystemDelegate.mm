@@ -182,7 +182,11 @@ bool JCFileSystemDelegateRunFunctionAndHandleExceptions(const std::function<void
 }
 
 - (void)releaseFileAtPath:(NSString *)path userData:(id)userData {
-    _fileSystem->closeFile((void *)[userData longValue]);
+    NSError *error;
+    auto func = [self, path, userData] () mutable {
+        _fileSystem->closeFile((void *)[userData longValue]);
+    };
+    JCFileSystemDelegateRunFunctionAndHandleExceptions(func, &error);
 }
 
 - (int)readFileAtPath:(NSString *)path

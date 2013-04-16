@@ -187,7 +187,7 @@ ACTION(addFilePaths) {
     return;
 }
 
-- (void)testReturnsContentsOfDirectoryPath2 {
+- (void)testReturnsContentsOfDirectoryPath {
     // Should return the contents
     std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
     JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
@@ -252,5 +252,69 @@ ACTION(addFileAttributes) {
     }
 }
 
+- (void)testOpensFile {
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    id userData = nil;
+    @autoreleasepool {
+        ON_CALL((*dummyFileSystem), openFileAtPath("/foo/ɕ!", CoCoDiskMounter::IFileSystem::FileOpenModeReadOnly)).WillByDefault(Return((void *)0x54321));
+        EXPECT_CALL((*dummyFileSystem), openFileAtPath("/foo/ɕ!", CoCoDiskMounter::IFileSystem::FileOpenModeReadOnly));
+        STAssertTrue([target openFileAtPath:@"/foo/ɕ!" mode:O_RDONLY userData:&userData error:&error], @"openFileAtPath: should return true when the open call is successful");
+        STAssertEquals([userData longValue], 0x54321L, @"openFileAtPath: userData not set properly");
+    }
+    
+    ON_CALL((*dummyFileSystem), openFileAtPath("/foo/ɕ!", CoCoDiskMounter::IFileSystem::FileOpenModeReadOnly)).WillByDefault(Throw(CoCoDiskMounter::FileNotFoundException("/foo/ɕ!")));
+    EXPECT_CALL((*dummyFileSystem), openFileAtPath("/foo/ɕ!", CoCoDiskMounter::IFileSystem::FileOpenModeReadOnly));
+    userData = nil;
+    STAssertFalse([target openFileAtPath:@"/foo/ɕ!" mode:O_RDONLY userData:&userData error:&error], @"openFileAtPath: should return false when the open call fails");
+    STAssertEqualObjects(JCErrorDomain, error.domain, @"openFileAtPath: error domain is incorrect");
+    STAssertEquals(error.code, JCErrorDomainFileNotFound, @"openFileAtPath: code domain is incorrect");
+}
+
+- (void)testClosesFile {
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    EXPECT_CALL((*dummyFileSystem), closeFile((void *)0x54321));
+    [target releaseFileAtPath:@"/foo/ɕ!" userData:[NSNumber numberWithLong:0x54321]];
+
+    // Should absorb thrown exceptions
+    try {
+        ON_CALL((*dummyFileSystem), closeFile((void *)0x54321)).WillByDefault(Throw(CoCoDiskMounter::FileNotFoundException("oops!")));
+        EXPECT_CALL((*dummyFileSystem), closeFile((void *)0x54321));
+        [target releaseFileAtPath:@"/foo/ɕ!" userData:[NSNumber numberWithLong:0x54321]];
+    } catch(...) {
+        STFail(@"releaseFileAtPath: should absorb exceptions thrown by closeFile");
+    }
+}
+
+- (void)testReadsFile {
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    char buffer[1024];
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    ON_CALL((*dummyFileSystem), readFile((void *)0x54321L, buffer, sizeof(buffer), 25)).WillByDefault(Return(32));
+    EXPECT_CALL((*dummyFileSystem), readFile((void *)0x54321L, buffer, sizeof(buffer), 25));
+    STAssertEquals([target readFileAtPath:@"/foo/ɕ!" userData:[NSNumber numberWithLong:0x54321] buffer:buffer size:sizeof(buffer) offset:25 error:&error], 32, @"readFileAtPath: not returning correct number of read bytes.");
+    STAssertNil(error, @"readFileAtPath: not setting error to nil when called successfully");
+
+    ON_CALL((*dummyFileSystem), readFile((void *)0x54321L, buffer, sizeof(buffer), 25)).WillByDefault(Throw(CoCoDiskMounter::IOException()));
+    EXPECT_CALL((*dummyFileSystem), readFile((void *)0x54321L, buffer, sizeof(buffer), 25));
+    STAssertEquals([target readFileAtPath:@"/foo/ɕ!" userData:[NSNumber numberWithLong:0x54321] buffer:buffer size:sizeof(buffer) offset:25 error:&error], -1, @"readFileAtPath: not returning -1 when exception thrown.");
+    STAssertEqualObjects(JCErrorDomain, error.domain, @"readFileAtPath: error domain is incorrect");
+    STAssertEquals(error.code, JCErrorDomainIO, @"readFileAtPath: code domain is incorrect");
+}
+
+-(void)testReturnsEmptyExtendedAttributes {
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
+    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
+    NSArray *attributes;
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    @autoreleasepool {
+        attributes = [target extendedAttributesOfItemAtPath:@"/foo/ɕ!" error:&error];
+        STAssertEquals(attributes.count, 0uL, @"extendedAttributesOfItemAtPath: should return an empty list");
+        STAssertNil(error, @"extendedAttributesOfItemAtPath: should set error to nil");
+    }
+}
 
 @end
