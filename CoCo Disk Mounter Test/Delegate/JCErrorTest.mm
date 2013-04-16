@@ -12,14 +12,14 @@
 @implementation JCErrorTest
 
 - (void)testErrorConstants {
-    STAssertEquals(@"CoCoDiskMounterErrorDomain", JCErrorDomain, @"");
-    STAssertEquals(1l, JCErrorDomainGeneric, @"");
-    STAssertEquals(2l, JCErrorDomainIO, @"");
-    STAssertEquals(3l, JCErrorDomainFileNotFound, @"");
-    STAssertEquals(4l, JCErrorDomainFilePermission, @"");
-    STAssertEquals(5l, JCErrorDomainBadFileFormat, @"");
-    STAssertEquals(6l, JCErrorDomainNotADirectory, @"");
-    STAssertEquals(7l, JCErrorDomainNotAFile, @"");
+    STAssertEquals(JCErrorDomain, @"CoCoDiskMounterErrorDomain", @"");
+    STAssertEquals(JCErrorDomainGeneric, 1L, @"");
+    STAssertEquals(JCErrorDomainIO, 2L, @"");
+    STAssertEquals(JCErrorDomainFileNotFound, 3L, @"");
+    STAssertEquals(JCErrorDomainFilePermission, 4L, @"");
+    STAssertEquals(JCErrorDomainBadFileFormat, 5L, @"");
+    STAssertEquals(JCErrorDomainNotADirectory, 6L, @"");
+    STAssertEquals(JCErrorDomainNotAFile, 7L, @"");
 }
 
 @end

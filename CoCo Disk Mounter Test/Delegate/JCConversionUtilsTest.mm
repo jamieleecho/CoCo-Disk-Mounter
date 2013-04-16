@@ -24,7 +24,7 @@
     // Ensure that object is autoreleased
     NSUInteger retainCount = str.retainCount;
     [str release];
-    STAssertEquals(1uL, retainCount, @"JCConvertStringToNSString() not autoreleasing return value");
+    STAssertEquals(retainCount, 1uL, @"JCConvertStringToNSString() not autoreleasing return value");
 }
 
 - (void)testJCConvertNSStringToString {

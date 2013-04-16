@@ -21,7 +21,7 @@ bool JCFileSystemDelegateRunFunctionAndHandleExceptions(const std::function<void
         *error = nil;
         return true;
     } catch(const CoCoDiskMounter::FileNotFoundException &notFoundException) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:notFoundException.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainFileNotFound userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:notFoundException.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
         return false;
     } catch(const CoCoDiskMounter::IOException &notFoundException) {
         *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainIO userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:notFoundException.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
