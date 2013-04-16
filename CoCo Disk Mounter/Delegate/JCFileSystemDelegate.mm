@@ -30,7 +30,7 @@ bool JCFileSystemDelegateRunFunctionAndHandleExceptions(const std::function<void
         *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:exception.getReason().c_str()] forKey:NSLocalizedDescriptionKey]];
         return false;
     } catch(...) {
-        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:@"Unknown Exception" forKey:NSLocalizedDescriptionKey]];
+        *error = [NSError errorWithDomain:JCErrorDomain code:JCErrorDomainGeneric userInfo:[NSDictionary dictionaryWithObject:@"Unknown exception" forKey:NSLocalizedDescriptionKey]];
         return false;
     }
 }

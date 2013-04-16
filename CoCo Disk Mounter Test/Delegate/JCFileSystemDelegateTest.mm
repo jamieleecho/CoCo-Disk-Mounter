@@ -10,6 +10,7 @@
 
 #import "../../CoCo Disk Mounter/Delegate/JCFileSystemDelegate.h"
 #import "../../CoCo Disk Mounter/Delegate/JCError.h"
+#import "../../CoCo Disk Mounter/Delegate/JCConversionUtils.h"
 #import "../../CoCo Disk Mounter/Model/NilFileSystem.h"
 #import "../helpers/GmockInitializer.h"
 #include "MockFileSystem.h"
@@ -21,6 +22,45 @@ using namespace testing;
 - (void)setUp {
     [super setUp];
     GmockInitializer::initialize();
+}
+
+- (void)testConvertsExceptionsToErrors {
+    // Successful call
+    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    STAssertTrue(JCFileSystemDelegateRunFunctionAndHandleExceptions([] () { }, &error), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should return true when the function does not throw");
+    STAssertNil(error, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should set the error to nil when the function does not throw");
+    
+    // FileNotFoundException
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    STAssertFalse(JCFileSystemDelegateRunFunctionAndHandleExceptions([] () { throw CoCoDiskMounter::FileNotFoundException("/foo/bar"); }, &error), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should return false when the function throws");
+    STAssertEquals(error.domain, JCErrorDomain, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error domain should be JCErrorDomain");
+    STAssertEquals(error.code, JCErrorDomainFileNotFound, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error code should be JCErrorDomainFileNotFound when CoCoDiskMounter::FileNotFoundException thrown.");
+    STAssertEquals(error.userInfo.count, 1uL, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo should have 1 entry");
+    STAssertEqualObjects(error.userInfo[NSLocalizedDescriptionKey], JCConvertStringToNSString(CoCoDiskMounter::FileNotFoundException("/foo/bar").getReason()), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo NSLocalizedDescriptionKey is incorrect");
+
+    // IOException
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    STAssertFalse(JCFileSystemDelegateRunFunctionAndHandleExceptions([] () { throw CoCoDiskMounter::IOException("/foo/bar"); }, &error), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should return false when the function throws");
+    STAssertEquals(error.domain, JCErrorDomain, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error domain should be JCErrorDomain");
+    STAssertEquals(error.code, JCErrorDomainIO, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error code should be JCErrorDomainIO when CoCoDiskMounter::IOException thrown.");
+    STAssertEquals(error.userInfo.count, 1uL, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo should have 1 entry");
+    STAssertEqualObjects(error.userInfo[NSLocalizedDescriptionKey], JCConvertStringToNSString(CoCoDiskMounter::IOException("/foo/bar").getReason()), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo NSLocalizedDescriptionKey is incorrect");
+    
+    // Exception
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    STAssertFalse(JCFileSystemDelegateRunFunctionAndHandleExceptions([] () { throw CoCoDiskMounter::Exception("/foo/bar"); }, &error), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should return false when the function throws");
+    STAssertEquals(error.domain, JCErrorDomain, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error domain should be JCErrorDomain");
+    STAssertEquals(error.code, JCErrorDomainGeneric, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error code should be JCErrorDomainGeneric when CoCoDiskMounter::Exception thrown.");
+    STAssertEquals(error.userInfo.count, 1uL, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo should have 1 entry");
+    STAssertEqualObjects(error.userInfo[NSLocalizedDescriptionKey], JCConvertStringToNSString(CoCoDiskMounter::Exception("/foo/bar").getReason()), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo NSLocalizedDescriptionKey is incorrect");
+    
+    // Unknown Exceptions
+    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
+    STAssertFalse(JCFileSystemDelegateRunFunctionAndHandleExceptions([] () { throw std::string("hello"); }, &error), @"JCFileSystemDelegateRunFunctionAndHandleExceptions() should return false when the function throws");
+    STAssertEquals(error.domain, JCErrorDomain, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error domain should be JCErrorDomain");
+    STAssertEquals(error.code, JCErrorDomainGeneric, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error code should be JCErrorDomainGeneric when an unknown exception is thrown.");
+    STAssertEquals(error.userInfo.count, 1uL, @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo should have 1 entry");
+    STAssertEqualObjects(error.userInfo[NSLocalizedDescriptionKey], @"Unknown exception", @"JCFileSystemDelegateRunFunctionAndHandleExceptions() error userInfo NSLocalizedDescriptionKey is incorrect");
 }
 
 - (void)testAttributeDictionaryFromMap {

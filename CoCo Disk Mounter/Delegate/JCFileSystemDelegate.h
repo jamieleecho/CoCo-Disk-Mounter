@@ -20,7 +20,7 @@
  * @param[output] error where to store the error if the func throws
  * @return true if func did not throw and false otherwise
  */
-bool JCFileSystemDelegateRunFunctionAndHandleExceptions(std::function<void()>& func, NSError **error);
+bool JCFileSystemDelegateRunFunctionAndHandleExceptions(const std::function<void()>& func, NSError **error);
 
 @interface JCFileSystemDelegate : NSObject {
     /** Represents the file system for this delegate */
