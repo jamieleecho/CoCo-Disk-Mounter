@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Jamie Cho. All rights reserved.
 //
 
-#ifndef CoCo_Disk_Mounter_MockFileSystem_h
-#define CoCo_Disk_Mounter_MockFileSystem_h
+#pragma once
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
@@ -35,5 +34,3 @@ namespace CoCoDiskMounterTest {
         MOCK_METHOD4(readFile, size_t(void *descriptor, char *buffer, size_t size, size_t offset));
     };    
 }
-
-#endif

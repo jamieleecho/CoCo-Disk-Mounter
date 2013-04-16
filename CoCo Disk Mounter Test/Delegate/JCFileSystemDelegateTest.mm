@@ -13,7 +13,7 @@
 #import "../../CoCo Disk Mounter/Delegate/JCConversionUtils.h"
 #import "../../CoCo Disk Mounter/Model/NilFileSystem.h"
 #import "../helpers/GmockInitializer.h"
-#include "MockFileSystem.h"
+#include "../model/MockFileSystem.h"
 
 using namespace testing;
 

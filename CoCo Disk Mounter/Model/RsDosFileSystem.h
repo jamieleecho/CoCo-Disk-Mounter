@@ -307,7 +307,7 @@ namespace CoCoDiskMounter {
          * Creates an RsDosFileSystem from the given DiskImage.
          * @param diskImage disk containing an RS-DOS filesystem.
          */
-        RsDosFileSystem(std::shared_ptr<DiskImage> diskImage) : FileSystem(diskImage), _granuleMap(diskImage) { }
+        RsDosFileSystem(std::shared_ptr<DiskImage> &diskImage) : FileSystem(diskImage), _granuleMap(diskImage) { }
         
         void contentsOfDirectoryAtPath(std::vector<std::string> &contents, const std::string &path);
         

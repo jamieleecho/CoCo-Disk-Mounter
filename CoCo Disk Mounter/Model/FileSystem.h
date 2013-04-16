@@ -24,7 +24,7 @@ namespace CoCoDiskMounter {
          * Creates a FileSystem object that uses diskImage for IO.
          * @param diskImage disk image to use for IO operations.
          */
-        FileSystem(std::shared_ptr<DiskImage> diskImage) : _diskImage(diskImage) { }
+        FileSystem(std::shared_ptr<DiskImage> &diskImage) : _diskImage(diskImage) { }
     
     protected:
         /** disk image to use for IO operations */

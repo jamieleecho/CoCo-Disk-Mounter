@@ -56,6 +56,8 @@
 		52BA292016D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
 		52BA292116D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
 		52BA292216D95609006DAC61 /* JCFileSystemDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */; };
+		52C7FE1D171DFD890027B454 /* Breakout.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 52C7FE1B171DFD890027B454 /* Breakout.dsk */; };
+		52C7FE1E171DFD890027B454 /* SGU5.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 52C7FE1C171DFD890027B454 /* SGU5.dsk */; };
 		52EEF19B17122D8400FA8099 /* JCFileSystemDelegateTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52A5852216DB8A79006E7380 /* JCFileSystemDelegateTest.mm */; };
 		52EEF1A1171238AB00FA8099 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396D1168E5A5600E2BE13 /* AppKit.framework */; };
 		52EEF1A2171238B300FA8099 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F396D3168E5A5600E2BE13 /* Foundation.framework */; };
@@ -141,7 +143,10 @@
 		52BA28FF16D95142006DAC61 /* ExceptionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptionTest.h; sourceTree = "<group>"; };
 		52BA290016D95142006DAC61 /* ExceptionTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExceptionTest.mm; sourceTree = "<group>"; };
 		52BA291F16D95506006DAC61 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OSXFUSE.framework; sourceTree = "<group>"; };
-		52F0CD2F171AC741002FF6EB /* MockFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockFileSystem.h; path = Model/MockFileSystem.h; sourceTree = "<group>"; };
+		52C7FE15171DF9DF0027B454 /* MockDiskImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDiskImage.h; sourceTree = "<group>"; };
+		52C7FE1B171DFD890027B454 /* Breakout.dsk */ = {isa = PBXFileReference; explicitFileType = archive.rsrc; name = Breakout.dsk; path = Resources/Breakout.dsk; sourceTree = "<group>"; };
+		52C7FE1C171DFD890027B454 /* SGU5.dsk */ = {isa = PBXFileReference; explicitFileType = archive.rsrc; fileEncoding = 4; name = SGU5.dsk; path = Resources/SGU5.dsk; sourceTree = "<group>"; };
+		52F0CD2F171AC741002FF6EB /* MockFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFileSystem.h; sourceTree = "<group>"; };
 		52F396CA168E5A5600E2BE13 /* CoCoDiskMounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoCoDiskMounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F396CE168E5A5600E2BE13 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52F396D1168E5A5600E2BE13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -212,7 +217,6 @@
 				5231DB3216DAC096007CDB63 /* JCConversionUtilsTest.mm */,
 				52A5852116DB8A79006E7380 /* JCFileSystemDelegateTest.h */,
 				52A5852216DB8A79006E7380 /* JCFileSystemDelegateTest.mm */,
-				52F0CD2F171AC741002FF6EB /* MockFileSystem.h */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 		52BA28C416D94C1A006DAC61 /* CoCo Disk Mounter Test */ = {
 			isa = PBXGroup;
 			children = (
+				52C7FE16171DFC5C0027B454 /* Resources */,
 				5219FD46171B6EB6000DDB31 /* Helpers */,
 				5231DB2C16DABE29007CDB63 /* Delegate */,
 				52BA28C516D94C1A006DAC61 /* Supporting Files */,
@@ -281,12 +286,23 @@
 		52BA28FC16D95142006DAC61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52F0CD2F171AC741002FF6EB /* MockFileSystem.h */,
 				52BA28FF16D95142006DAC61 /* ExceptionTest.h */,
 				52BA290016D95142006DAC61 /* ExceptionTest.mm */,
 				5231DB3416DACDE6007CDB63 /* NilFileSystemTest.h */,
 				5231DB3516DACDE6007CDB63 /* NilFileSystemTest.mm */,
+				52C7FE15171DF9DF0027B454 /* MockDiskImage.h */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		52C7FE16171DFC5C0027B454 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52C7FE1B171DFD890027B454 /* Breakout.dsk */,
+				52C7FE1C171DFD890027B454 /* SGU5.dsk */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		52F396BF168E5A5600E2BE13 = {
@@ -439,6 +455,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52BA28C916D94C1A006DAC61 /* InfoPlist.strings in Resources */,
+				52C7FE1D171DFD890027B454 /* Breakout.dsk in Resources */,
+				52C7FE1E171DFD890027B454 /* SGU5.dsk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
