@@ -141,29 +141,22 @@ using namespace testing;
     STAssertNil(error, @"extendedAttributesOfItemAtPath:error should return no error");
 }
 
-- (void)testReturnsContentsOfDirectoryPath {
-    class ContentOfDirectoryPathFileSystem : public CoCoDiskMounter::NilFileSystem {
-    public:
-        ContentOfDirectoryPathFileSystem() : shouldThrowException(false) { }
-        bool shouldThrowException;
-        std::string lastPath;
-        void contentsOfDirectoryAtPath(std::vector<std::string> &contents, const std::string &path) {
-            lastPath = path;
-            contents.push_back("/hello world!");
-            contents.push_back("/hello ɕ!");
-            if (shouldThrowException)
-                throw CoCoDiskMounter::Exception("oops!");
-        }
-    };
-    
+ACTION(addFilePaths) {
+    arg0.push_back("/hello world!");
+    arg0.push_back("/hello ɕ!");
+    return;
+}
+
+- (void)testReturnsContentsOfDirectoryPath2 {
     // Should return the contents
-    std::shared_ptr<ContentOfDirectoryPathFileSystem> dummyFileSystem(new  ContentOfDirectoryPathFileSystem());
+    std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
     JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
     NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
     NSArray *contents;
     @autoreleasepool {
+        ON_CALL((*dummyFileSystem), contentsOfDirectoryAtPath(_, _)).WillByDefault(addFilePaths());
+        EXPECT_CALL((*dummyFileSystem), contentsOfDirectoryAtPath(testing::ElementsAre(), "/foo/ɕ!"));
         contents = [target contentsOfDirectoryAtPath:@"/foo/ɕ!" error:&error];
-        STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"contentsOfDirectoryAtPath: path not being passed properly");
         STAssertEquals(2ul, [contents count], @"contentsOfDirectoryAtPath: did not return correct number of entries");
         STAssertEqualObjects(@"/hello world!", contents[0], @"contentsOfDirectoryAtPath: first item not correct");
         STAssertEqualObjects(@"/hello ɕ!", contents[1], @"contentsOfDirectoryAtPath: second item not correct");
@@ -176,52 +169,11 @@ using namespace testing;
     // Should forward error
     error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
     @autoreleasepool {
-        dummyFileSystem->shouldThrowException = true;
+        ON_CALL((*dummyFileSystem), contentsOfDirectoryAtPath(_, _)).WillByDefault(Throw(CoCoDiskMounter::Exception()));
+        EXPECT_CALL((*dummyFileSystem), contentsOfDirectoryAtPath(testing::ElementsAre(), "/foo/ɕ!"));
         STAssertNil([target contentsOfDirectoryAtPath:@"/foo/ɕ!" error:&error], @"contentsOfDirectoryAtPath: error does not return nil");
-        STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"contentsOfDirectoryAtPath: path not being passed properly");
         STAssertEqualObjects(JCErrorDomain, error.domain, @"contentsOfDirectoryAtPath: error domain is incorrect");
         STAssertEquals(JCErrorDomainGeneric, error.code, @"contentsOfDirectoryAtPath: code domain is incorrect");
-    }
-}
-
-- (void)testAttributesOfItemAtPath {
-    class AttributesOfItemAtPathFileSystem : public CoCoDiskMounter::NilFileSystem {
-    public:
-        AttributesOfItemAtPathFileSystem() : shouldThrowException(false) { }
-        bool shouldThrowException;
-        std::string lastPath;
-        void getPropertiesOfFile(std::map<CoCoDiskMounter::IFileSystem::Attribute_t, long> &mapAttributes, const std::string &path) {
-            lastPath = path;
-            if (shouldThrowException)
-                throw CoCoDiskMounter::Exception("oops!");
-            mapAttributes[CoCoDiskMounter::IFileSystem::AttributeFileType] = CoCoDiskMounter::IFileSystem::FileTypeRegular;
-            mapAttributes[CoCoDiskMounter::IFileSystem::AtributeFileModificationDate] = 2000000l;
-        }
-    };
-
-    std::shared_ptr<AttributesOfItemAtPathFileSystem> dummyFileSystem(new  AttributesOfItemAtPathFileSystem());
-    JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
-    NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
-    NSDictionary *attributes;
-    @autoreleasepool {
-        attributes = [target attributesOfItemAtPath:@"/foo/ɕ!" userData:(id)0x123456 error:&error];
-        STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
-        STAssertNil(error, @"attributesOfItemAtPath: error not nil");
-        STAssertEquals(2ul, attributes.count, @"attributesOfItemAtPath: returned wrong number of items");
-        STAssertEqualObjects([NSDate dateWithTimeIntervalSince1970:2000.0], attributes[NSFileModificationDate], @"attributesOfItemAtPath: did not return correct file modification date");
-       [attributes retain];
-    }
-    STAssertEquals(1ul, attributes.retainCount, @"attributesOfItemAtPath: attributes retainCount is incorrect");
-    [attributes release];
-    
-    // Should forward error
-    error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
-    @autoreleasepool {
-        dummyFileSystem->shouldThrowException = true;
-        STAssertNil([target attributesOfItemAtPath:@"/foo/ɕ!" userData:(id)0x123456 error:&error], @"attributesOfItemAtPath: error does not return nil");
-        STAssertTrue(std::string("/foo/ɕ!") == dummyFileSystem->lastPath, @"attributesOfItemAtPath: path not being passed properly");
-        STAssertEqualObjects(JCErrorDomain, error.domain, @"attributesOfItemAtPath: error domain is incorrect");
-        STAssertEquals(JCErrorDomainGeneric, error.code, @"attributesOfItemAtPath: code domain is incorrect");
     }
 }
 
@@ -231,7 +183,7 @@ ACTION(addFileAttributes) {
     return;
 }
 
-- (void)testAttributesOfItemAtPath2 {
+- (void)testAttributesOfItemAtPath {
     std::shared_ptr<CoCoDiskMounterTest::MockFileSystem> dummyFileSystem(new CoCoDiskMounterTest::MockFileSystem());
     JCFileSystemDelegate *target = [[[JCFileSystemDelegate alloc] initWithFileSystem:dummyFileSystem] autorelease];
     NSError *error = [NSError errorWithDomain:@"xxx" code:123 userInfo:nil];
