@@ -9,16 +9,102 @@
 #import "JVCDiskImageTest.h"
 
 #include <string>
+#include <stdio.h>
+#include <iostream>
 
 #include "../../CoCo Disk Mounter/Delegate/JCConversionUtils.h"
+#include "../../CoCo Disk Mounter/Model/JVCDiskImage.h"
+
+using namespace CoCoDiskMounter;
 
 @implementation JVCDiskImageTest
 
-static std::string openResource(NSString *str) {
+static std::string getPathForDiskFileResource(NSString *str) {
     NSBundle *bundle = [NSBundle bundleForClass:[JVCDiskImageTest class]];
-    return JCConvertNSStringToString([bundle pathForResource:str ofType:@"dsk"]);
+    NSString *path = [bundle pathForResource:str ofType:@"dsk"];
+    return JCConvertNSStringToString(path);
 }
 
 
+static std::string copyDiskFileResourceToTempFile(NSString *str) {
+    NSBundle *bundle = [NSBundle bundleForClass:[JVCDiskImageTest class]];
+    NSString *srcPath = [bundle pathForResource:str ofType:@"dsk"];
+    char *dstName = tmpnam(NULL);
+    NSString *dstPath = JCConvertStringToNSString(dstName);
+    [[NSFileManager defaultManager] copyItemAtPath:srcPath toPath:dstPath error:nil];
+    return dstName;
+}
+
+
+- (void)testConstructorThrowsRightExceptions {
+    // Open a file that does not exist
+    try {
+        JVCDiskImage target("/Systems/Windows/Breakout.dsk");
+        STFail(@"Should have thrown FileNotFoundException");
+    } catch(const FileNotFoundException &fnfe) {
+    }
+    
+    // Try to open an unreadable copy of the disk image
+    std::string fileCopy = copyDiskFileResourceToTempFile(@"Breakout");
+    NSDictionary *noAccessAttributes = [NSDictionary dictionaryWithObject:[NSNumber numberWithShort:0] forKey:NSFilePosixPermissions];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager setAttributes:noAccessAttributes ofItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
+    {
+        try {
+            JVCDiskImage target(fileCopy.c_str());
+            STFail(@"Should have thrown FilePermissionException");
+        } catch(const FilePermissionException &fpe) {
+        }
+    }
+    
+    // Opening a file with a strange size should fail
+    NSDictionary *allAccessAttributes = [NSDictionary dictionaryWithObject:[NSNumber numberWithShort:0777] forKey:NSFilePosixPermissions];
+    [fileManager setAttributes:allAccessAttributes ofItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
+    {
+        std::ofstream fout(fileCopy.c_str(), std::ios::out | std::ios::binary);
+        fout.write("a", 1);
+        fout.close();
+        try {
+            JVCDiskImage target(fileCopy.c_str());
+            STFail(@"Should have thrown BadFileFormatException");
+        } catch(const BadFileFormatException &bfe) {
+        }
+    }
+    
+    // Opening an empty file should fail
+    [fileManager removeItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
+    {
+        std::ofstream fout(fileCopy.c_str(), std::ios::out | std::ios::binary);
+        fout.close();
+        try {
+            JVCDiskImage target(fileCopy.c_str());
+            STFail(@"Should have thrown BadFileFormatException");
+        } catch(const BadFileFormatException &bfe) {
+        }
+    }
+
+    // Clean up
+    [fileManager removeItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
+}
+
+
+- (void)testCanRead {
+    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+}
+
+
+- (void)testCanReadOverBoundaryLimits {
+    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+}
+
+
+- (void)testCanWrite {
+    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+}
+
+
+- (void)testCanWriteOverBoundaryLimits {
+    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+}
 
 @end

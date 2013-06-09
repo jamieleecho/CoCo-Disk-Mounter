@@ -20,9 +20,14 @@ namespace CoCoDiskMounter {
         // If we failed to open the file, try to figure out why
         if (!_file) {
             struct stat sb;
-            if (::stat(filename, &sb) == -1)
-                if (errno == EACCES) throw FilePermissionException(filename);
-            throw FileNotFoundException(filename);
+            if (::stat(filename, &sb) == -1) {
+                if ((errno == EACCES) || (errno == EPERM))
+                    throw FilePermissionException(filename);
+                throw FileNotFoundException(filename);
+            } else {
+                // We failed to open, but could stat, assume it's a permission issue
+                throw FilePermissionException(filename);
+            }
         }
 
         // Get the size of the file
@@ -30,7 +35,7 @@ namespace CoCoDiskMounter {
         if (::stat(filename, &sb) == -1)
             throw FilePermissionException(filename);
         _fileSize = (int)sb.st_size;
-        if ((sb.st_size % NUM_BYTES_PER_TRACK) != 0)
+        if (((sb.st_size % NUM_BYTES_PER_TRACK) != 0) || (sb.st_size == 0))
             throw BadFileFormatException(filename);
     }
     
