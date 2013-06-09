@@ -89,7 +89,21 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
 
 
 - (void)testCanRead {
+    // Read characters into buffer
     JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+    unsigned char buffer[1024];
+    for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+        buffer[ii] = 'C';
+    STAssertEquals(target.read(buffer, 100, 123, 17, 2), 123, @"Did not return expected number of read characters");
+
+    // Spot check buffer
+    
+    
+    // Make sure we did not overrun
+    for(int ii=0; ii<100; ii++)
+        STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
+    for(int ii=223; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+        STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
 }
 
 
@@ -99,12 +113,22 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
 
 
 - (void)testCanWrite {
-    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+    std::string fileCopy = copyDiskFileResourceToTempFile(@"Breakout");
+    JVCDiskImage target(fileCopy.c_str());
+
+    // Clean up
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
 }
 
 
 - (void)testCanWriteOverBoundaryLimits {
-    JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+    std::string fileCopy = copyDiskFileResourceToTempFile(@"Breakout");
+    JVCDiskImage target(fileCopy.c_str());
+
+    // Clean up
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:JCConvertStringToNSString(fileCopy) error:nil];
 }
 
 @end
