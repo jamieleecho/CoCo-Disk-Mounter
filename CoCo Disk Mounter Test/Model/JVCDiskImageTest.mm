@@ -118,7 +118,7 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
     
     // Spot check buffer
     STAssertEquals(strncmp((char *)buffer + 100, "ART", 3), 0, @"First few bytes should have been ART");
-    STAssertEquals((unsigned char)0xff, buffer[7568 + 99], @"Last byte should have been 0xff");
+    STAssertEquals(buffer[7568 + 99], (unsigned char)0xff, @"Last byte should have been 0xff");
     
     // Make sure we did not overrun
     for(int ii=0; ii<100; ii++)
@@ -130,7 +130,18 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
 
 - (void)testCanWrite {
     std::string fileCopy = copyDiskFileResourceToTempFile(@"Breakout");
-    JVCDiskImage target(fileCopy.c_str());
+    {
+        JVCDiskImage target(fileCopy.c_str());
+        STAssertEquals(target.write((unsigned char *)"hello world", 0, 11, 17, 2, 32), 11, @"Failed to write 11 characters");
+    }
+    {
+        JVCDiskImage target(fileCopy.c_str());
+        unsigned char buffer[1024];
+        for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+            buffer[ii] = 'C';
+        STAssertEquals(target.read(buffer, 0, 11, 17, 2, 32), 11, @"Did not return expected number of read characters");
+        STAssertEquals(strncmp((char *)buffer, "hello world", 11), 0, @"Failed to write hello world");
+    }
 
     // Clean up
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -140,7 +151,18 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
 
 - (void)testCanWriteOverBoundaryLimits {
     std::string fileCopy = copyDiskFileResourceToTempFile(@"Breakout");
-    JVCDiskImage target(fileCopy.c_str());
+    {
+        JVCDiskImage target(fileCopy.c_str());
+        STAssertEquals(target.write((unsigned char *)"hello world", 0, 11, 34, 17, 251), 5, @"Failed to write 5 characters");
+    }
+    {
+        JVCDiskImage target(fileCopy.c_str());
+        unsigned char buffer[1024];
+        for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+            buffer[ii] = 'C';
+        STAssertEquals(target.read(buffer, 0, 5, 34, 17, 251), 5, @"Did not return expected number of read characters");
+        STAssertEquals(strncmp((char *)buffer, "hello", 5), 0, @"Failed to write hello");
+    }
 
     // Clean up
     NSFileManager *fileManager = [NSFileManager defaultManager];
