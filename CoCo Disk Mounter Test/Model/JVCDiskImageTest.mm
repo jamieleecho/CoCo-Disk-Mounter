@@ -94,15 +94,16 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
     unsigned char buffer[1024];
     for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
         buffer[ii] = 'C';
-    STAssertEquals(target.read(buffer, 100, 123, 17, 2), 123, @"Did not return expected number of read characters");
+    STAssertEquals(target.read(buffer, 100, 171, 17, 2, 32), 171, @"Did not return expected number of read characters");
 
     // Spot check buffer
-    
+    STAssertEquals(strncmp((char *)buffer + 100, "BALLOON BIN", 11), 0, @"First few bytes should have been BALLOON");
+    STAssertEquals(strncmp((char *)buffer + 260, "BREAKOUTBAS", 11), 0, @"Last few bytes should have been BREAKOUTBAS");
     
     // Make sure we did not overrun
     for(int ii=0; ii<100; ii++)
         STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
-    for(int ii=223; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+    for(int ii=271; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
         STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
 }
 
