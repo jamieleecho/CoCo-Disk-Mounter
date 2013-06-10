@@ -109,7 +109,22 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
 
 
 - (void)testCanReadOverBoundaryLimits {
+    // Read characters into buffer
     JVCDiskImage target(getPathForDiskFileResource(@"Breakout").c_str());
+    unsigned char buffer[13824];
+    for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+        buffer[ii] = 'C';
+    STAssertEquals(target.read(buffer, 100, sizeof(buffer)/sizeof(buffer[00]) - 100, 33, 6, 112), 7568, @"Did not return expected number of read characters");
+    
+    // Spot check buffer
+    STAssertEquals(strncmp((char *)buffer + 100, "ART", 3), 0, @"First few bytes should have been ART");
+    STAssertEquals((unsigned char)0xff, buffer[7568 + 99], @"Last byte should have been 0xff");
+    
+    // Make sure we did not overrun
+    for(int ii=0; ii<100; ii++)
+        STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
+    for(int ii=7668; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
+        STAssertEquals((char)buffer[ii], 'C', @"Buffer overrun detected");
 }
 
 

@@ -44,7 +44,7 @@ namespace CoCoDiskMounter {
         int fullOffset = setPositionG(track, sector, sectorOffset);
         if (fullOffset > _fileSize) return 0;
         int finalOffset = fullOffset + nchars;
-        if (finalOffset > _fileSize) fullOffset = finalOffset;
+        if (finalOffset > _fileSize) finalOffset = _fileSize;
         
         // Seek to the correct position and perform the read
         int bytesToRead = finalOffset - fullOffset;
@@ -60,7 +60,7 @@ namespace CoCoDiskMounter {
         int fullOffset = setPositionP(track, sector, sectorOffset);
         if (fullOffset > _fileSize) return 0;
         int finalOffset = fullOffset + nchars;
-        if (finalOffset > _fileSize) fullOffset = finalOffset;
+        if (finalOffset > _fileSize) finalOffset = _fileSize;
         
         // Seek to the correct position and perform the read
         _file.write((const char *)buffer, finalOffset - fullOffset);
