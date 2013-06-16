@@ -161,7 +161,7 @@ static std::string copyDiskFileResourceToTempFile(NSString *str) {
         for(int ii=0; ii<sizeof(buffer)/sizeof(buffer[0]); ii++)
             buffer[ii] = 'C';
         STAssertEquals(target.read(buffer, 0, 5, 34, 17, 251), 5, @"Did not return expected number of read characters");
-        STAssertEquals(strncmp((char *)buffer, "hello", 5), 0, @"Failed to write hello");
+        STAssertEquals(strncmp((char *)buffer, "hello", 5), 0, @"Failed to write hello   ");
     }
 
     // Clean up

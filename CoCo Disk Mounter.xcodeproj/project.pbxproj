@@ -57,6 +57,7 @@
 		52BA292016D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
 		52BA292116D95506006DAC61 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BA291F16D95506006DAC61 /* OSXFUSE.framework */; };
 		52BA292216D95609006DAC61 /* JCFileSystemDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52BA28FA16D9512F006DAC61 /* JCFileSystemDelegate.mm */; };
+		52C643AC176DBDDD0052A41D /* RSDosFileSystemTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C643AB176DBDDD0052A41D /* RSDosFileSystemTest.mm */; };
 		52C7FE1D171DFD890027B454 /* Breakout.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 52C7FE1B171DFD890027B454 /* Breakout.dsk */; };
 		52C7FE1E171DFD890027B454 /* SGU5.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 52C7FE1C171DFD890027B454 /* SGU5.dsk */; };
 		52EEF19B17122D8400FA8099 /* JCFileSystemDelegateTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52A5852216DB8A79006E7380 /* JCFileSystemDelegateTest.mm */; };
@@ -146,6 +147,8 @@
 		52BA28FF16D95142006DAC61 /* ExceptionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptionTest.h; sourceTree = "<group>"; };
 		52BA290016D95142006DAC61 /* ExceptionTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExceptionTest.mm; sourceTree = "<group>"; };
 		52BA291F16D95506006DAC61 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OSXFUSE.framework; sourceTree = "<group>"; };
+		52C643AA176DBDDD0052A41D /* RSDosFileSystemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDosFileSystemTest.h; sourceTree = "<group>"; };
+		52C643AB176DBDDD0052A41D /* RSDosFileSystemTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSDosFileSystemTest.mm; sourceTree = "<group>"; };
 		52C7FE15171DF9DF0027B454 /* MockDiskImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDiskImage.h; sourceTree = "<group>"; };
 		52C7FE1B171DFD890027B454 /* Breakout.dsk */ = {isa = PBXFileReference; explicitFileType = archive.rsrc; name = Breakout.dsk; path = Resources/Breakout.dsk; sourceTree = "<group>"; };
 		52C7FE1C171DFD890027B454 /* SGU5.dsk */ = {isa = PBXFileReference; explicitFileType = archive.rsrc; fileEncoding = 4; name = SGU5.dsk; path = Resources/SGU5.dsk; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				52C7FE15171DF9DF0027B454 /* MockDiskImage.h */,
 				52B6EBE9171E11A1007AE2DC /* JVCDiskImageTest.h */,
 				52B6EBEA171E11A1007AE2DC /* JVCDiskImageTest.mm */,
+				52C643AA176DBDDD0052A41D /* RSDosFileSystemTest.h */,
+				52C643AB176DBDDD0052A41D /* RSDosFileSystemTest.mm */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				52EEF19B17122D8400FA8099 /* JCFileSystemDelegateTest.mm in Sources */,
 				5219FD49171B6EE7000DDB31 /* GmockInitializer.cpp in Sources */,
 				52B6EBEB171E11A1007AE2DC /* JVCDiskImageTest.mm in Sources */,
+				52C643AC176DBDDD0052A41D /* RSDosFileSystemTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
