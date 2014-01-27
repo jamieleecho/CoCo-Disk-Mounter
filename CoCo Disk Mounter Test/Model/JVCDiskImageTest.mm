@@ -7,6 +7,7 @@
 //
 
 #import "JVCDiskImageTest.h"
+#import <CoreFoundation/CoreFoundation.h>
 
 #include <string>
 #include <stdio.h>
@@ -29,10 +30,16 @@ static std::string getPathForDiskFileResource(NSString *str) {
 static std::string copyDiskFileResourceToTempFile(NSString *str) {
     NSBundle *bundle = [NSBundle bundleForClass:[JVCDiskImageTest class]];
     NSString *srcPath = [bundle pathForResource:str ofType:@"dsk"];
-    char *dstName = tmpnam(NULL);
-    NSString *dstPath = JCConvertStringToNSString(dstName);
+    CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *uuidString = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    
+    NSString *dstPath = [NSTemporaryDirectory() stringByAppendingPathComponent:uuidString];
     [[NSFileManager defaultManager] copyItemAtPath:srcPath toPath:dstPath error:nil];
-    return dstName;
+
+    [uuidString release];
+    CFRelease(uuidRef);
+
+    return JCConvertNSStringToString(dstPath);
 }
 
 

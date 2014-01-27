@@ -7,8 +7,22 @@
 //
 
 #import "RSDosFileSystemTest.h"
+#include "../../CoCo Disk Mounter/Model/JVCDiskImage.h"
 #include "../../CoCo Disk Mounter/Model/RsDosFileSystem.h"
+#include "../../CoCo Disk Mounter/Delegate/JCConversionUtils.h"
+
 #include "RsDosFileSystemTest.h"
+
+using namespace CoCoDiskMounter;
+using namespace std;
+
+
+static std::string getPathForDiskFileResource(NSString *str) {
+    NSBundle *bundle = [NSBundle bundleForClass:[RSDosFileSystemTest class]];
+    NSString *path = [bundle pathForResource:str ofType:@"dsk"];
+    return JCConvertNSStringToString(path);
+}
+
 
 @implementation RSDosFileSystemTest
 
@@ -38,6 +52,28 @@
     STAssertTrue(CoCoDiskMounter::RsDosFileSystem::getSpaceTerminatedString((unsigned const char *)"The Quick Brown Fox", 10) == "The Quick", @"getSpaceTerminatedString() not returning expected result");
     STAssertTrue(CoCoDiskMounter::RsDosFileSystem::getSpaceTerminatedString((unsigned const char *)"The     ", 8) == "The", @"getSpaceTerminatedString() not returning expected result");
     STAssertTrue(CoCoDiskMounter::RsDosFileSystem::getSpaceTerminatedString((unsigned const char *)" Th ", 3) == " Th", @"getSpaceTerminatedString() not returning expected result");
+}
+
+- (void)testGranuleMapGetFreeSpace {
+    const string sgu5DiskPath = getPathForDiskFileResource(@"SGU5");
+    shared_ptr<DiskImage> sgu5Disk(new JVCDiskImage(sgu5DiskPath.c_str()));
+    CoCoDiskMounter::RsDosFileSystem::GranuleMap target(sgu5Disk);
+    STAssertEquals(target.getNumFreeGranules(), 25, @"Number of free granules should be 25");
+    STAssertEquals(target.getNumFreeBytes(), 25 * 2304, @"Number of free granules should be 25 * 2304");    
+}
+
+- (void)testGranuleMapGetNumSectors {
+    const string sgu5DiskPath = getPathForDiskFileResource(@"SGU5");
+    shared_ptr<DiskImage> sgu5Disk(new JVCDiskImage(sgu5DiskPath.c_str()));
+    CoCoDiskMounter::RsDosFileSystem::GranuleMap target(sgu5Disk);
+    STAssertEquals(target.getNumSectors(0), 0, @"File at granule 0 should have 0 sectors");
+    STAssertEquals(target.getNumSectors(1), 0, @"File at granule 1 should have 0 sectors");
+    STAssertEquals(target.getNumSectors(9), 0, @"File at granule 9 should have 0 sectors");
+    STAssertEquals(target.getNumSectors(10), 0, @"File at granule 10 should have 0 sectors - the map says one but it is partially filled so is NOT counted here");
+    STAssertEquals(target.getNumSectors(12), 6, @"File at granule 12 should have 6 sectors - the map says 7 but last is partially filled so is NOT counted here");
+    STAssertEquals(target.getNumSectors(14), 24, @"File at granule 14 should have 24 sectors - two full granules (14 and 15) and granule 12 with 6 full sectors");
+    STAssertEquals(target.getNumSectors(66), 0, @"File at granule 66 should have 0 sectors");
+    STAssertEquals(target.getNumSectors(67), 0, @"File at granule 67 should have 0 sectors");
 }
 
 @end

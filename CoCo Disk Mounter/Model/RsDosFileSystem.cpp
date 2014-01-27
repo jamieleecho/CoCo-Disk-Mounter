@@ -26,7 +26,7 @@ namespace CoCoDiskMounter {
             
             // Make sure that the granuleEntry is valid
             int granuleEntry = _granuleMap[granule];
-            if (!isValid(granuleEntry))
+            if (!isValid(granuleEntry) || isFree(granuleEntry))
                 return 0;
             
             // Last granule entry?
