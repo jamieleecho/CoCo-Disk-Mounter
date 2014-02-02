@@ -30,7 +30,7 @@ namespace CoCoDiskMounter {
                 return 0;
             
             // Last granule entry?
-            moreGranules = !isLastGranule(granuleEntry);
+            moreGranules = !isLastGranule(granuleEntry) && !isFree(granuleEntry);
             if (moreGranules) {
                 _granuleVisitedMap[granule] = true;
                 granule = granuleEntry;

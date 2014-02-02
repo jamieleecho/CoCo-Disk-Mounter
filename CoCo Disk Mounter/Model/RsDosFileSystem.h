@@ -105,13 +105,13 @@ namespace CoCoDiskMounter {
             int getNumFreeBytes() const { return getNumFreeGranules() * GRANULE_SIZE_BYTES; }
             
             /**
-             * @param[input] granuleValue value of a granuleValue for which isLastGranule(granuleValue) is true
+             * @param[input] granuleValue value of a granule map entry
              * @return whether or not granuleValue is valid
              */
             bool isValid(int granuleValue) const {
                 return ((granuleValue >= 0) && (granuleValue <= 0x43)) ||
                        ((granuleValue >= 0xc0) && (granuleValue <= 0xc9)) ||
-                       (granuleValue >= 0xff);
+                       (granuleValue == 0xff);
             }
             
             /** 
@@ -143,6 +143,7 @@ namespace CoCoDiskMounter {
              * @return the number of sectors in the last granule
              */
             int numSectorsInGranule(int granuleValue) const {
+                if (isFree(granuleValue)) return 0;
                 if (!isLastGranule(granuleValue)) return GRANULE_SIZE_SECTORS;
                 int numSectors = granuleValue & 0xf;
                 return ((numSectors >= 0) && (numSectors < 9)) ? numSectors : 9;
