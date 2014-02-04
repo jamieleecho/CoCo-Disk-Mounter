@@ -54,9 +54,9 @@ namespace CoCoDiskMounter {
     
     int RsDosFileSystem::GranuleMap::getOffsetGranule(int granule, size_t offset) {
         clearGranuleVisitedMap();
-        while(offset > 0) {
+        while(true) {
             // Validate the granule
-            if ((granule < 0) || (granule > NUM_GRANULES))
+            if ((granule < 0) || (granule >= NUM_GRANULES))
                 throw IOException();
             
             // Make sure we are not in a circular chain
@@ -76,9 +76,15 @@ namespace CoCoDiskMounter {
                     throw IOException();
                 return granule;
             }
+
+            // Mark that we have visited this granule
+            _granuleVisitedMap[granule] = true;
+            
+            // Determine whether or not we must iterate to the next granule
+            if (offset < GRANULE_SIZE_BYTES)
+                break;
             
             // Move on to the next iteration
-            _granuleVisitedMap[granule] = true;
             granule = granuleEntry;
             offset -= GRANULE_SIZE_BYTES;
         }

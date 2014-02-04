@@ -171,7 +171,6 @@ static std::string getPathForDiskFileResource(NSString *str) {
     STAssertEquals(0xf, target.getOffsetGranule(0x0e, CoCoDiskMounter::RsDosFileSystem::GRANULE_SIZE_BYTES), @"Should be 0xf because we have gone past this granule");
     STAssertEquals(0xf, target.getOffsetGranule(0x0e, (2 * CoCoDiskMounter::RsDosFileSystem::GRANULE_SIZE_BYTES) - 1), @"Should be 0xf because we have gone past this granule");
     STAssertEquals(0xc, target.getOffsetGranule(0x0e,  2 * CoCoDiskMounter::RsDosFileSystem::GRANULE_SIZE_BYTES), @"Should be 0xf because we have gone through two granules");
-
 }
 
 @end
